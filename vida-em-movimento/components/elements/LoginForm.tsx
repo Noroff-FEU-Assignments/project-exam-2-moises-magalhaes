@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import Heading from "./Heading";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
 const schema = yup.object().shape({
 	email: yup
@@ -13,7 +13,7 @@ const schema = yup.object().shape({
 	password: yup
 		.string()
 		.required("Please enter your password")
-		.min(10, "The message must be at least 8 characters"),
+		.min(10, "The password must be at least 8 characters"),
 });
 
 const LoginForm = () => {
@@ -27,9 +27,11 @@ const LoginForm = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<FormValues>();
+	} = useForm<FormValues>({
+		resolver: yupResolver(schema),
+	});
 
-	console.log(errors);
+	// console.log(errors);
 
 	function submitForm(data: any) {
 		console.log(data);
@@ -47,7 +49,7 @@ const LoginForm = () => {
 						type="email"
 						placeholder="Enter email"
 					/>
-					{errors.email && <p>Email is required</p>}
+					{errors.email && <p>{errors.email?.message}</p>}
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="formBasicPassword">
@@ -60,7 +62,7 @@ const LoginForm = () => {
 						type="password"
 						placeholder="Password"
 					/>
-					{errors.password && <p>Password is required</p>}
+					{errors.password && <p>{errors.password?.message}</p>}
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="formBasicCheckbox">
 					<Form.Check
