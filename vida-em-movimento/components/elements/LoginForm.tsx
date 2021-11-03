@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import Heading from "./Heading";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import Router from "next/router";
+import axios from "axios";
+import { baseUrl } from "../constants/api";
 
 const schema = yup.object().shape({
 	email: yup
@@ -13,10 +16,33 @@ const schema = yup.object().shape({
 	password: yup
 		.string()
 		.required("Please enter your password")
-		.min(10, "The password must be at least 8 characters"),
+		.min(8, "The password must be at least 8 characters"),
 });
 
-const LoginForm = () => {
+// login function
+
+// function LoginForm({ Login }: any) {
+function LoginForm(props: any) {
+	// data fetching from api
+	const [details, setDetails] = useState({ email: "", password: "" });
+
+	const submitForm: any = (data: any) => {
+		console.log(data);
+
+		axios
+			.post(baseUrl + "auth/local", {
+				email: details.email,
+				password: details.password,
+			})
+			.then((response) => {
+				console.log("response", response);
+			})
+			.catch((error) => {
+				console.log("error", error);
+			});
+		// Router.push("/dashboard");
+	};
+
 	type FormValues = {
 		email: string;
 		password: string;
@@ -31,12 +57,6 @@ const LoginForm = () => {
 		resolver: yupResolver(schema),
 	});
 
-	// console.log(errors);
-
-	function submitForm(data: any) {
-		console.log(data);
-	}
-
 	return (
 		<>
 			<Heading title="Login Form" />
@@ -48,6 +68,7 @@ const LoginForm = () => {
 						{...register("email", { required: true })}
 						type="email"
 						placeholder="Enter email"
+						onChange={(e) => setDetails({ ...details, email: e.target.value })}
 					/>
 					{errors.email && <p>{errors.email?.message}</p>}
 				</Form.Group>
@@ -61,22 +82,27 @@ const LoginForm = () => {
 						})}
 						type="password"
 						placeholder="Password"
+						onChange={(e) =>
+							setDetails({ ...details, password: e.target.value })
+						}
+						value={details.password}
 					/>
 					{errors.password && <p>{errors.password?.message}</p>}
 				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicCheckbox">
+				{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
 					<Form.Check
 						{...register("checkbox")}
 						type="checkbox"
 						label="keep me signed"
 					/>
-				</Form.Group>
+				</Form.Group> */}
+
 				<Button variant="primary" type="submit">
-					Submit
+					Login
 				</Button>
 			</Form>
 		</>
 	);
-};
+}
 
 export default LoginForm;

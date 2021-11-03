@@ -3,11 +3,13 @@ import Head from "next/head";
 import Image from "next/image";
 import HeroBanner from "../components/layout/HeroBanner";
 import styles from "../styles/Home.module.css";
+import Products from "../components/elements/Products";
 
 const Home: NextPage = () => {
 	return (
 		<>
 			<HeroBanner />
+			<Products />
 		</>
 	);
 };
