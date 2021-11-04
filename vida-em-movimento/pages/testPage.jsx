@@ -1,32 +1,23 @@
 import { useRouter } from "next/router";
 import axios from "axios";
 import nookies from "nookies";
+import LoginComponent from "../components/elements/LoginComponent";
 
-const Dashboard = (props: any) => {
+const TestPage = () => {
 	const router = useRouter();
-	const {
-		user: { email, username },
-	} = props;
-
-	const logout = async () => {
-		try {
-			await axios.get("/api/logout");
-			router.push("/admin");
-		} catch (e) {
-			console.log(e);
-		}
+	const goToRegister = () => {
+		router.push("/register");
 	};
 
 	return (
 		<div>
-			<div>Username: {username}</div>
-			<div>Email: {email}</div>
-			<button onClick={logout}>Logout</button>
+			<LoginComponent />
+			<button onClick={goToRegister}>Register</button>
 		</div>
 	);
 };
 
-export const getServerSideProps = async (ctx: any) => {
+export const getServerSideProps = async (ctx) => {
 	const cookies = nookies.get(ctx);
 	let user = null;
 
@@ -43,19 +34,18 @@ export const getServerSideProps = async (ctx: any) => {
 		}
 	}
 
-	if (!user) {
+	if (user) {
 		return {
 			redirect: {
 				permanent: false,
-				destination: "/admin",
+				destination: "/profile",
 			},
 		};
 	}
 
 	return {
-		props: {
-			user,
-		},
+		props: {},
 	};
 };
-export default Dashboard;
+
+export default TestPage;

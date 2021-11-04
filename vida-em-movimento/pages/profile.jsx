@@ -1,8 +1,6 @@
-import { useRouter } from "next/router";
-import axios from "axios";
 import nookies from "nookies";
 
-const Dashboard = (props: any) => {
+const Profile = (props) => {
 	const router = useRouter();
 	const {
 		user: { email, username },
@@ -11,7 +9,7 @@ const Dashboard = (props: any) => {
 	const logout = async () => {
 		try {
 			await axios.get("/api/logout");
-			router.push("/admin");
+			router.push("/login");
 		} catch (e) {
 			console.log(e);
 		}
@@ -26,7 +24,7 @@ const Dashboard = (props: any) => {
 	);
 };
 
-export const getServerSideProps = async (ctx: any) => {
+export const getServerSideProps = async (ctx) => {
 	const cookies = nookies.get(ctx);
 	let user = null;
 
@@ -47,7 +45,7 @@ export const getServerSideProps = async (ctx: any) => {
 		return {
 			redirect: {
 				permanent: false,
-				destination: "/admin",
+				destination: "/login",
 			},
 		};
 	}
@@ -58,4 +56,5 @@ export const getServerSideProps = async (ctx: any) => {
 		},
 	};
 };
-export default Dashboard;
+
+export default Profile;

@@ -26,22 +26,40 @@ function LoginForm(props: any) {
 	// data fetching from api
 	const [details, setDetails] = useState({ email: "", password: "" });
 
-	const submitForm: any = (data: any) => {
-		console.log(data);
-
-		axios
-			.post(baseUrl + "auth/local", {
-				email: details.email,
+	const submitForm: any = async (data: any) => {
+		const options = {
+			method: "POST",
+			body: JSON.stringify({
+				identifier: details.email,
 				password: details.password,
-			})
-			.then((response) => {
-				console.log("response", response);
-			})
-			.catch((error) => {
-				console.log("error", error);
-			});
-		// Router.push("/dashboard");
+			}),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		const URL = baseUrl + "auth/local";
+		const response = await fetch(URL, options);
+		const json = await response.json();
+		console.log(json);
 	};
+
+	//with axios
+	// const submitForm: any = (data: any) => {
+	// 	console.log(data);
+
+	// 	axios
+	// 		.post(baseUrl + "auth/local", {
+	// 			email: details.email,
+	// 			password: details.password,
+	// 		})
+	// 		.then((response) => {
+	// 			console.log("response", response);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log("error", error);
+	// 		});
+	// 	// Router.push("/dashboard");
+	// };
 
 	type FormValues = {
 		email: string;
