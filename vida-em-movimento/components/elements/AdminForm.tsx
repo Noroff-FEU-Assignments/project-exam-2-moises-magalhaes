@@ -24,8 +24,16 @@ const schema = yup.object().shape({
 // function LoginForm({ Login }: any) {
 function AdminForm(props: any) {
 	// data fetching from api
-	const [details, setDetails] = useState({ email: "", password: "" });
+	const [details, setDetails] = useState({
+		email: "",
+		password: "",
+		login: false,
+		token: "",
+	});
 
+	const [error, setError] = useState(null);
+
+	//handling onSubmit form
 	const submitForm: any = async (data: any) => {
 		const options = {
 			method: "POST",
@@ -37,10 +45,31 @@ function AdminForm(props: any) {
 				"Content-Type": "application/json",
 			},
 		};
+
 		const URL = baseUrl + "auth/local";
 		const response = await fetch(URL, options);
-		const json = await response.json();
-		console.log(json);
+		const json = await response.json().then((result) => {
+			if (result.message) {
+				setError(result.message[0].message[0].message);
+			} else {
+				localStorage.setItem(
+					"admin",
+					JSON.stringify({
+						login: true,
+						token: result.jwt,
+					})
+				);
+				setDetails({
+					// identifier: details.email,
+					email: details.email,
+					login: true,
+					token: result.jwt,
+					password: details.password,
+				});
+			}
+		});
+		// console.log(json);
+		console.log(details.token);
 		Router.push("/dashboard");
 	};
 

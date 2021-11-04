@@ -21,15 +21,19 @@ const schema = yup.object().shape({
 });
 
 // login function
-
-// function LoginForm({ Login }: any) {
 function LoginForm(props: any) {
 	// data fetching from api
-	const [details, setDetails] = useState({ email: "", password: "" });
-	const { globalState, setGlobalState } = React.useContext(GlobalContext);
-	const { url } = globalState;
+	const [details, setDetails] = useState({
+		email: "",
+		password: "",
+		login: false,
+		token: "",
+	});
 
-	const submitForm: any = async (user: any) => {
+	const [error, setError] = useState(null);
+
+	//handling onSubmit form
+	const submitForm: any = async (data: any) => {
 		const options = {
 			method: "POST",
 			body: JSON.stringify({
@@ -40,28 +44,32 @@ function LoginForm(props: any) {
 				"Content-Type": "application/json",
 			},
 		};
+
 		const URL = baseUrl + "auth/local";
 		const response = await fetch(URL, options);
-		const json = await response.json();
-
-		//new add to save in localstorage
-		if (json.error) {
-			props.history.push("/error", {
-				error: json.error,
-			});
-		}
-
-		if (json.user) {
-			await window.localStorage.setItem("token", JSON.stringify(json.token));
-			await setGlobalState({
-				...globalState,
-				token: json.token,
-				userId: json.user.id,
-			});
-
-			props.history.push("/dashboard");
-		}
-		console.log(json);
+		const json = await response.json().then((result) => {
+			if (result.message) {
+				setError(result.message[0].message[0].message);
+			} else {
+				localStorage.setItem(
+					"login",
+					JSON.stringify({
+						login: true,
+						token: result.jwt,
+					})
+				);
+				setDetails({
+					// identifier: details.email,
+					email: details.email,
+					login: true,
+					token: result.jwt,
+					password: details.password,
+				});
+			}
+		});
+		// console.log(json);
+		console.log(details.token);
+		Router.push("/dashboard");
 	};
 
 	//with axios
