@@ -69,7 +69,7 @@ function LoginForm(props: any) {
 		});
 		// console.log(json);
 		console.log(details.token);
-		Router.push("/dashboard");
+		Router.push("/userpage");
 	};
 
 	//with axios
