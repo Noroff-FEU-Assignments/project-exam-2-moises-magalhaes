@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import Router from "next/router";
 import axios from "axios";
 import { baseUrl } from "../constants/api";
+import { setCookie } from "nookies";
 
 const schema = yup.object().shape({
 	email: yup
@@ -25,8 +26,10 @@ const schema = yup.object().shape({
 function LoginForm(props: any) {
 	// data fetching from api
 	const [details, setDetails] = useState({ email: "", password: "" });
+	const { globalState, setGlobalState } = React.useContext(GlobalContext);
+	const { url } = globalState;
 
-	const submitForm: any = async (data: any) => {
+	const submitForm: any = async (user: any) => {
 		const options = {
 			method: "POST",
 			body: JSON.stringify({
@@ -40,6 +43,24 @@ function LoginForm(props: any) {
 		const URL = baseUrl + "auth/local";
 		const response = await fetch(URL, options);
 		const json = await response.json();
+
+		//new add to save in localstorage
+		if (json.error) {
+			props.history.push("/error", {
+				error: json.error,
+			});
+		}
+
+		if (json.user) {
+			await window.localStorage.setItem("token", JSON.stringify(json.token));
+			await setGlobalState({
+				...globalState,
+				token: json.token,
+				userId: json.user.id,
+			});
+
+			props.history.push("/dashboard");
+		}
 		console.log(json);
 	};
 
