@@ -47,6 +47,7 @@ function AdminForm(props: any) {
 		};
 
 		const URL = baseUrl + "auth/local";
+
 		const response = await fetch(URL, options);
 		const json = await response.json().then((result) => {
 			if (result.message) {
