@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Router from "next/router"
 import axios from "axios";
 import nookies from "nookies";
 import { useEffect, useState } from "react";
@@ -11,46 +12,38 @@ import EditHome from "./edit-home";
 // const Dashboard = ({ Component, DashboardProps }: AppProps) => {
 const Dashboard = () => {
 	const router = useRouter();
+	
 
 	const UseLocalStorage = (adminValue) => {
 		const [value, setValue] = useState("");
 
+
 		useEffect(() => {
 			setValue(localStorage.getItem(adminValue));
+		
+
 		}, []);
+
+
 		return value;
 	};
 
-	const fecthAdmin = UseLocalStorage("admin");
-	console.log(fecthAdmin);
-	// const getStorageValue = useState(() => {
-	// 	//getting stored value from localstorage
-	// 	if (typeof window !== "undefined") {
-	// 		return {
-	// 			admin:
-	// 				window.localStorage.getItem("admin") === null
-	// 					? []
-	// 					: window.localStorage.getItem("admin"),
-	// 			// viwedItems: [],
-	// 			// saved: [],
-	// 		};
-	// 	}
-	// 	const retrieved: any = localStorage.getItem("admin");
-	// 	const initialValue = JSON.parse(retrieved);
+	const fetchAdmin = UseLocalStorage("admin");
+	console.log(fetchAdmin);
 
-	// 	console.log(initialValue);
+		if(fetchAdmin === null || undefined){
+				router.push("/admin")
+			}
 
-	// 	// return initialValue || "";
-	// });
 
 	return (
 		<div>
-			<DashboardNav />
-			{/* <p value={fecthAdmin}></p> */}
-			<Container>
-				<EditHome />
-				<Logout />
-			</Container>
+				<DashboardNav />
+					<Container>
+						<EditHome />
+						<Logout />
+					</Container>
+			
 		</div>
 	);
 };

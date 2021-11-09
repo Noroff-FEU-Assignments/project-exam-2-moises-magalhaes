@@ -15,7 +15,7 @@ export const FetchingData = () => {
 		asyncFunction();
 	}, []);
 
-	console.log(data);
+	// console.log(data);
 
 	// first method
 	// const response = await fetch(baseUrl + "products/");

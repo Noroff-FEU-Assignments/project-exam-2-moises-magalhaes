@@ -9,7 +9,7 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<HeroBanner />
-			<Products />
+			{/* <Products /> */}
 		</>
 	);
 };

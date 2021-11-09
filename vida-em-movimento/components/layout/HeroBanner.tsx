@@ -1,11 +1,12 @@
-import React from "react";
 import Heading from "../elements/Heading";
+import FetchHome from "../hooks/FetchHome";
 
 const HeroBanner = () => {
 	return (
 		<>
 			<div className="bg-light p-5 rounded-lg m-3">
 				<Heading title="Welcome to our website" />
+				<FetchHome />
 				<p className="lead">
 					This is a simple hero unit, a simple jumbotron-style component for
 					calling extra attention to featured content or information.

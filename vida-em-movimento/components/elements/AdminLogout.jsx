@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap"
 
 const AdminLogout = () => {
 	const logout = () => {
@@ -8,7 +9,7 @@ const AdminLogout = () => {
 			console.log(e);
 		}
 	};
-	return <button onClick={logout}>Logout</button>;
+	return <Button onClick={logout}>Logout</Button>;
 };
 
 export default AdminLogout;
