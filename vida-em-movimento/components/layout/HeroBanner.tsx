@@ -1,5 +1,5 @@
 import Heading from "../elements/Heading";
-import FetchHome from "../hooks/FetchHome";
+import FetchHome from "../hooks/fetchHome";
 
 const HeroBanner = () => {
 	return (
