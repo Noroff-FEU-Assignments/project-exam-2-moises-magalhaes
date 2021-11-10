@@ -5,9 +5,9 @@ const HeroBanner = () => {
 	return (
 		<>
 			<div className="bg-light p-5 rounded-lg m-3">
-				<Heading title="Welcome to our website" />
+				{/* <Heading title="Welcome to our website" /> */}
 				<FetchHome />
-				<p className="lead">
+				{/* <p className="lead">
 					This is a simple hero unit, a simple jumbotron-style component for
 					calling extra attention to featured content or information.
 				</p>
@@ -18,7 +18,7 @@ const HeroBanner = () => {
 				</p>
 				<a className="btn btn-primary btn-lg" href="#" role="button">
 					Learn more
-				</a>
+				</a> */}
 			</div>
 		</>
 	);
