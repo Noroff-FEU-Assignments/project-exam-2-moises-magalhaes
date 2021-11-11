@@ -1,9 +1,12 @@
-import { FetchingData } from "../hooks/fetchingData";
+import FetchProducts from "../hooks/fetchProducts";
+import SubHeading from "./SubHeading";
+
 function Products() {
 	return (
-		<div>
-			<FetchingData />
-		</div>
+		<>
+			<SubHeading title="Products" />
+			<FetchProducts />
+		</>
 	);
 }
 

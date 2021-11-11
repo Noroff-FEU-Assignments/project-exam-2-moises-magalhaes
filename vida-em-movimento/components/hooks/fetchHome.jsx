@@ -51,7 +51,7 @@ const FetchHome = () => {
 		axios
 			.get(baseUrl + "heroes/")
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				setPost(res.data);
 			})
 			.catch((err) => {

@@ -7,15 +7,13 @@ const Footer = () => {
 			<footer>
 				<Container>
 					<div className="footer-left col-md-4 col-sm-6">
-						<p className="about">
-							<span> About the company</span> Ut congue augue non tellus
-							bibendum, in varius tellus condimentum. In scelerisque nibh
-							tortor, sed rhoncus odio condimentum in. Sed sed est ut sapien
-							ultrices eleifend. Integer tellus est, vehicula eu lectus
-							tincidunt, ultricies feugiat leo. Suspendisse tellus elit,
-							pharetra in hendrerit ut, aliquam quis augue. Nam ut nibh mollis,
-							tristique ante sed, viverra massa.
+						<p className="menu">
+							<a href="#"> Home</a> <a href="#"> About</a>
+							<a href="#"> Services and Products</a> <a href="#"> Portfolio</a>{" "}
+							<a href="#"> Events</a> <a href="#">Contacts</a>
+							<a href="#">Cart</a>
 						</p>
+
 						<div className="icons">
 							<a href="#">
 								<i className="fa fa-facebook"></i>
@@ -38,12 +36,13 @@ const Footer = () => {
 						<div>
 							<i className="fa fa-map-marker"></i>
 							<p>
-								<span> Street name and number</span> City, Country
+								<span> Rua Professora Eva mota, 15, Cohab São Francisco</span>
+								Petrolina, PE - Brasil
 							</p>
 						</div>
 						<div>
 							<i className="fa fa-phone"></i>
-							<p> (+00) 0000 000 000</p>
+							<p> (+55) 87 9 0000 0000</p>
 						</div>
 						<div>
 							<i className="fa fa-envelope"></i>
@@ -54,15 +53,11 @@ const Footer = () => {
 					</div>
 					<div className="footer-right col-md-4 col-sm-6">
 						<h2>
-							{" "}
-							Company<span> logo</span>
+							<span> Vida em Movimento</span>
 						</h2>
-						<p className="menu">
-							<a href="#"> Home</a> |<a href="#"> About</a> |
-							<a href="#"> Services</a> |<a href="#"> Portfolio</a> |
-							<a href="#"> News</a> |<a href="#"> Contact</a>
+						<p className="name">
+							All Rights reserved by &copy; MoisesMdesign 2021
 						</p>
-						<p className="name"> Company Name &copy; 2016</p>
 					</div>
 				</Container>
 			</footer>

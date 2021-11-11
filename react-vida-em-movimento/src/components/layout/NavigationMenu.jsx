@@ -1,38 +1,38 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import Link from "next/link";
+import Link from "react-router-dom";
 
 export const NavigationMenu = () => {
 	return (
 		<>
 			<Navbar bg="dark" expand="lg" variant="dark">
 				<Container>
-					<Navbar.Brand href="/">Vida em Movimento</Navbar.Brand>
+					<Navbar.Brand to="/">Vida em Movimento</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Link href="/" passHref>
+							<Link to="/">
 								<Nav.Link>Home</Nav.Link>
 							</Link>
-							<Link href="/about" passHref>
+							<Link to="/about">
 								<Nav.Link>About</Nav.Link>
 							</Link>
 
-							<Link href="/services and products" passHref>
+							<Link to="/services and products">
 								<Nav.Link>Products and services</Nav.Link>
 							</Link>
 
-							<Link href="/events" passHref>
+							<Link to="/events">
 								<Nav.Link>Events</Nav.Link>
 							</Link>
 
-							<Link href="/contact" passHref>
+							<Link to="/contact">
 								<Nav.Link>Contacts</Nav.Link>
 							</Link>
-							<Link href="/cart" passHref>
+							<Link to="/cart">
 								<Nav.Link>Cart</Nav.Link>
 							</Link>
-							<Link href="/login" passHref>
+							<Link to="/login">
 								<Nav.Link>Login</Nav.Link>
 							</Link>
 						</Nav>

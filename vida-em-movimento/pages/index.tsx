@@ -11,12 +11,18 @@ import {
 } from "@apollo/client";
 import styles from "../styles/Home.module.css";
 import Products from "../components/elements/Products";
+import Services from "../components/elements/Services";
+import Events from "../components/elements/Events";
+import Testimonies from "../components/elements/Testimonies";
 
 const Home: NextPage = () => {
 	return (
 		<>
 			<HeroBanner />
-			{/* <Products /> */}
+			<Services />
+			<Products />
+			<Testimonies />
+			<Events />
 		</>
 	);
 };
