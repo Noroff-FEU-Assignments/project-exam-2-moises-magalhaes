@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../constants/api";
 
+// products
+
 //fetching products from api
 export const FetchingData = () => {
 	const [data, setData] = useState();

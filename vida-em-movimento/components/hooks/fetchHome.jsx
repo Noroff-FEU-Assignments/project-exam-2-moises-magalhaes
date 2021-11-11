@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../constants/api";
-import Image from "next/Image";
+import Image from "next/image";
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -9,6 +9,9 @@ import {
 	gql,
 } from "@apollo/client";
 import axios from "axios";
+
+// export const url = process.process.env.API_URL + "heroes/";
+
 // import Card from "react-bootstrap";
 
 // export const getHero = async () => {
@@ -62,12 +65,13 @@ const FetchHome = () => {
 			{post.map((object) => (
 				<div key={object.id}>
 					<h3>{object.title}</h3>
-					<Image
+					<p>{object.description}</p>
+					{/* <Image
 						src={object.image.url}
 						width={200}
 						height={200}
 						alt="woman working out"
-					/>
+					/> */}
 				</div>
 			))}
 		</div>
