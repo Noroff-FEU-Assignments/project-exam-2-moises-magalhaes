@@ -18,15 +18,15 @@ export const NavigationMenu = () => {
 								<Nav.Link>About</Nav.Link>
 							</Link>
 
-							<Link href="/services and products" passHref>
-								<Nav.Link>Products and services</Nav.Link>
+							<Link href="/services-and-products" passHref>
+								<Nav.Link>Services And Products</Nav.Link>
 							</Link>
 
 							<Link href="/events" passHref>
 								<Nav.Link>Events</Nav.Link>
 							</Link>
 
-							<Link href="/contact" passHref>
+							<Link href="/contacts" passHref>
 								<Nav.Link>Contacts</Nav.Link>
 							</Link>
 							<Link href="/cart" passHref>

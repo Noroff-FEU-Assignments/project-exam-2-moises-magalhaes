@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
 
 const FetchProducts = () => {
@@ -25,6 +25,7 @@ const FetchProducts = () => {
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
 						<p>{object.description}</p>
+						<Button>Find more about</Button>
 					</Card>
 				))}
 			</div>
