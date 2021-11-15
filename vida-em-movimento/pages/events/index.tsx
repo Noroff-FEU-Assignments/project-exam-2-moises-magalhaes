@@ -1,6 +1,6 @@
 import React from "react";
-import Heading from "../components/elements/Heading";
-import FetchEvents from "../components/hooks/fetchEvents";
+import Heading from "../../components/elements/Heading";
+import FetchEvents from "../../components/hooks/fetchEvents";
 
 const events = () => {
 	return (
