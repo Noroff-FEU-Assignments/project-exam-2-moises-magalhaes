@@ -26,7 +26,7 @@ const FetchServices = () => {
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
 						<p>{object.description}</p>{" "}
-						<Link href="/services-and-products/:id" passHref>
+						<Link href={"/services-and-products/" + object.id} passHref>
 							<Button>Find more about</Button>
 						</Link>
 					</Card>
