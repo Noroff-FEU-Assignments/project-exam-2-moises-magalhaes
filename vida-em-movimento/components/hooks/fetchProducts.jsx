@@ -5,7 +5,7 @@ import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
 import Link from "next/link";
 
-const FetchProducts = () => {
+const FetchProducts = (props) => {
 	const [product, setProduct] = useState([]);
 	useEffect(() => {
 		axios

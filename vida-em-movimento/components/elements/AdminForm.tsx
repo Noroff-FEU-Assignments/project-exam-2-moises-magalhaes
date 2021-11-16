@@ -70,9 +70,9 @@ function AdminForm(props: any) {
 			}
 		});
 		// console.log(json);
-		console.log(details.token);
 		Router.push("/dashboard");
 	};
+	console.log(details.token);
 
 	//with axios
 	// const submitForm: any = (data: any) => {

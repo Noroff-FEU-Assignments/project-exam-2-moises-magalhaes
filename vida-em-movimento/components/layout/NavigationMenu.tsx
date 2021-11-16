@@ -3,11 +3,9 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import Searchbar from "../hooks/searchbar";
 
-export const NavigationMenu = () => {
-	const { search } = window.location;
-	const query = new URLSearchParams(search).get("search");
-	const filteredData = filterData(data, query);
+interface MenuProps {}
 
+export const NavigationMenu = (Props: MenuProps) => {
 	return (
 		<>
 			<Navbar bg="dark" expand="lg" variant="dark">
@@ -31,7 +29,6 @@ export const NavigationMenu = () => {
 							<Link href="/events" passHref>
 								<Nav.Link>Events</Nav.Link>
 							</Link>
-
 							<Link href="/contacts" passHref>
 								<Nav.Link>Contacts</Nav.Link>
 							</Link>

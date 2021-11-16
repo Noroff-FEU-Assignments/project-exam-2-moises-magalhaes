@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Router from "next/router"
+import Router from "next/router";
 import axios from "axios";
 import nookies from "nookies";
 import { useEffect, useState } from "react";
@@ -12,38 +12,31 @@ import EditHome from "./edit-home";
 // const Dashboard = ({ Component, DashboardProps }: AppProps) => {
 const Dashboard = () => {
 	const router = useRouter();
-	
 
 	const UseLocalStorage = (adminValue) => {
 		const [value, setValue] = useState("");
 
-
 		useEffect(() => {
 			setValue(localStorage.getItem(adminValue));
-		
-
 		}, []);
-
 
 		return value;
 	};
 
 	const fetchAdmin = UseLocalStorage("admin");
-	console.log(fetchAdmin);
+	// console.log(fetchAdmin);
 
-		if(fetchAdmin === null || undefined){
-				router.push("/admin")
-			}
-
+	if (fetchAdmin === null || undefined) {
+		router.push("/admin");
+	}
 
 	return (
 		<div>
-				<DashboardNav />
-					<Container>
-						<EditHome />
-						<Logout />
-					</Container>
-			
+			<DashboardNav />
+			<Container>
+				<EditHome />
+				<Logout />
+			</Container>
 		</div>
 	);
 };

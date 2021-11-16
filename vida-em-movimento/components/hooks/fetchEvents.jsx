@@ -5,7 +5,7 @@ import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
 import Link from "next/link";
 
-const FetchEvents = () => {
+const FetchEvents = (props) => {
 	const [events, setEvents] = useState([]);
 	useEffect(() => {
 		axios

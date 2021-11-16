@@ -5,7 +5,7 @@ import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
 import Link from "next/link";
 
-const FetchServices = () => {
+const FetchServices = (props) => {
 	const [service, setService] = useState([]);
 	useEffect(() => {
 		axios
@@ -25,7 +25,7 @@ const FetchServices = () => {
 				{service.map((object) => (
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
-						<p>{object.description}</p>{" "}
+						<p>{object.description}</p>
 						<Link
 							href={"/services-and-products/services/" + object.id}
 							passHref
