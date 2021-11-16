@@ -16,12 +16,12 @@ const AddNewProducts = () => {
 		return value;
 	};
 
-	const fetchAdmin = UseLocalStorage("admin");
+	const { fetchAdmin } = UseLocalStorage("admin");
 	console.log(fetchAdmin);
 
-	if (fetchAdmin === null || undefined) {
-		router.push("/admin");
-	}
+	// if (fetchAdmin === null || undefined) {
+	// 	router.push("/admin");
+	// }
 
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
@@ -37,7 +37,10 @@ const AddNewProducts = () => {
 		const data = { image, title, description };
 		const requestOptions = {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: {
+				Authorization: `Bearer${fetchAdmin}`,
+				"Content-Type": "application/json",
+			},
 			body: JSON.stringify(data),
 		};
 		fetch("http://localhost:1337/services/", requestOptions)
