@@ -4,6 +4,9 @@ export const getUser = () => {
 	else return null;
 };
 export const getToken = () => {
+	// const getData = JSON.parse(fetchAdmin);
+
+	// console.log(getData.token);
 	return localStorage.getItem("token") || null;
 };
 

@@ -6,8 +6,14 @@ const AddNewProducts = () => {
 	//getting authorization
 	const router = useRouter();
 
-	const UseLocalStorage = (adminValue) => {
-		const [value, setValue] = useState("");
+	const MyLocalStorage = (adminValue) => {
+		// const [value, setValue] = useState("");
+		const [value, setValue] = useState();
+		// 	() => {
+		// 	const saved = "admin";
+		// 	const initialValue = JSON.parse(saved);
+		// 	return initialValue || "";
+		// }
 
 		useEffect(() => {
 			setValue(localStorage.getItem(adminValue));
@@ -16,8 +22,12 @@ const AddNewProducts = () => {
 		return value;
 	};
 
-	const { fetchAdmin } = UseLocalStorage("admin");
+	const fetchAdmin = MyLocalStorage("admin");
 	console.log(fetchAdmin);
+
+	// const getData = JSON.parse(fetchAdmin);
+
+	// console.log(getData.token);
 
 	// if (fetchAdmin === null || undefined) {
 	// 	router.push("/admin");
@@ -34,16 +44,24 @@ const AddNewProducts = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		// async function initJson(props) {
+		const initialValue = localStorage.getItem("admin");
+		const saved = JSON.parse(initialValue);
+		// 	return console.log(saved.token);
+		// }
+
+		// initJson();
+
 		const data = { image, title, description };
 		const requestOptions = {
 			method: "POST",
 			headers: {
-				Authorization: `Bearer${fetchAdmin}`,
+				Authorization: "Bearer " + saved.token,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(data),
 		};
-		fetch("http://localhost:1337/services/", requestOptions)
+		fetch("http://localhost:1337/products/", requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res));
 	};
@@ -54,9 +72,6 @@ const AddNewProducts = () => {
 				<Accordion.Header>Add</Accordion.Header>
 				<Accordion.Body>
 					<Form onSubmit={handleSubmit}>
-						{/* {" "}
-						{fetchAdmin !== "" ? ( */}
-						{/* <> */}
 						<Form.Group controlId="formFile" className="mb-3">
 							<Form.Label>Add image</Form.Label>
 							<Form.Control

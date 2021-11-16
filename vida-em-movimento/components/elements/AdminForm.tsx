@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import Router from "next/router";
 import axios from "axios";
 import { baseUrl } from "../constants/api";
+import { setUserSession } from "../constants/admAccess";
 
 const schema = yup.object().shape({
 	email: yup
@@ -61,7 +62,6 @@ function AdminForm(props: any) {
 					})
 				);
 				setDetails({
-					// identifier: details.email,
 					email: details.email,
 					login: true,
 					token: result.jwt,
@@ -72,25 +72,6 @@ function AdminForm(props: any) {
 		// console.log(json);
 		Router.push("/dashboard");
 	};
-	console.log(details.token);
-
-	//with axios
-	// const submitForm: any = (data: any) => {
-	// 	console.log(data);
-
-	// 	axios
-	// 		.post(baseUrl + "auth/local", {
-	// 			email: details.email,
-	// 			password: details.password,
-	// 		})
-	// 		.then((response) => {
-	// 			console.log("response", response);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log("error", error);
-	// 		});
-	// 	// Router.push("/dashboard");
-	// };
 
 	type FormValues = {
 		email: string;
