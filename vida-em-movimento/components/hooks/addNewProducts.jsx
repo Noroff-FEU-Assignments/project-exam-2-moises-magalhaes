@@ -51,45 +51,45 @@ const AddNewProducts = () => {
 				<Accordion.Header>Add</Accordion.Header>
 				<Accordion.Body>
 					<Form onSubmit={handleSubmit}>
-						{" "}
-						{fetchAdmin !== "" ? (
-							<>
-								<Form.Group controlId="formFile" className="mb-3">
-									<Form.Label>Add image</Form.Label>
-									<Form.Control
-										type="file"
-										value={image}
-										onChange={onImageChange}
-										required
-									/>
-								</Form.Group>
-								<Form.Group className="mb-3">
-									<Form.Label>Add Title</Form.Label>
+						{/* {" "}
+						{fetchAdmin !== "" ? ( */}
+						{/* <> */}
+						<Form.Group controlId="formFile" className="mb-3">
+							<Form.Label>Add image</Form.Label>
+							<Form.Control
+								type="file"
+								value={image}
+								onChange={onImageChange}
+								required
+							/>
+						</Form.Group>
+						<Form.Group className="mb-3">
+							<Form.Label>Add Title</Form.Label>
 
-									<Form.Control
-										type="text"
-										placeholder="Normal text"
-										value={title}
-										onChange={onTitleChange}
-										required
-									/>
-								</Form.Group>
-								<Form.Group className="mb-3">
-									<Form.Label>Add text</Form.Label>
-									<Form.Control
-										as="textarea"
-										rows={3}
-										placeholder="Write your service description"
-										value={description}
-										onChange={onDescriptionChange}
-										required
-									/>
-								</Form.Group>
-								<Button variant="primary" type="submit">
-									Sumbmit change
-								</Button>
-							</>
-						) : (
+							<Form.Control
+								type="text"
+								placeholder="Normal text"
+								value={title}
+								onChange={onTitleChange}
+								required
+							/>
+						</Form.Group>
+						<Form.Group className="mb-3">
+							<Form.Label>Add text</Form.Label>
+							<Form.Control
+								as="textarea"
+								rows={3}
+								placeholder="Write your service description"
+								value={description}
+								onChange={onDescriptionChange}
+								required
+							/>
+						</Form.Group>
+						<Button variant="primary" type="submit">
+							Sumbmit change
+						</Button>
+						{/* </> */}
+						{/* ) : (
 							<Alert
 								variant="danger"
 								onClose={() => setShow(false)}
@@ -103,7 +103,7 @@ const AddNewProducts = () => {
 									fermentum.
 								</p>
 							</Alert>
-						)}
+						)} */}
 					</Form>
 				</Accordion.Body>
 			</Accordion.Item>
