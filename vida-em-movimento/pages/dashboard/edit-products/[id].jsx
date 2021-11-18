@@ -1,7 +1,19 @@
-import React from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { Accordion, Button, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { baseUrl } from "../../../components/constants/api";
 
 const EditIdPage = () => {
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm();
+
+	//Fetching data from API
 	const [data, setData] = useState([]);
 	const router = useRouter();
 	const { id } = router.query;
@@ -18,41 +30,95 @@ const EditIdPage = () => {
 			});
 	}, [id]);
 
+	//Posting data to API
+
+	const MyLocalStorage = (adminValue) => {
+		const [value, setValue] = useState("");
+
+		useEffect(() => setValue(localStorage.getItem(adminValue) || "{}"), []);
+
+		return value;
+	};
+
+	MyLocalStorage("admin");
+
+	const [image, setImage] = useState("");
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+
+	const onImageChange = (e) => setImage(e.target.files);
+	const onTitleChange = (e) => setTitle(e.target.value);
+	const onDescriptionChange = (e) => setDescription(e.target.value);
+
+	const submitForm = (e) => {
+		e.preventDefault();
+
+		//get authorization
+		const initialValue = localStorage.getItem("admin") || "{}";
+		const saved = JSON.parse(initialValue);
+
+		const data = { image, title, description };
+		const requestOptions = {
+			method: "POST",
+			headers: {
+				Authorization: "Bearer " + saved.token,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		};
+		fetch(baseUrl + "products/" + id, requestOptions)
+			.then((response) => response.json())
+			.then(
+				(res) => console.log(res)
+				// alert("successfull")
+			)
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
+	};
+
 	return (
 		<>
-			<div className="products">
-				<h2>{id}</h2>
-				<p>{data.title}</p>
-				<p>{data.description}</p>
-				{/* <Image src={data.image.url} alt="training" /> */}
-			</div>
-			<Accordion.Body className="edit-products">
-				<Form>
-					<Form.Group controlId="formFile" className="mb-3">
-						<Form.Label>Edit image</Form.Label>
-						<Form.Control type="file" placeholder={data.image} />
-					</Form.Group>
+			<Form className="edit-products" onSubmit={handleSubmit(submitForm)}>
+				<Form.Group controlId="formFile" className="mb-3">
+					<Form.Label>Edit image</Form.Label>
+					<Form.Control
+						{...register(
+							"image"
+							//  { required: true }
+						)}
+						type="file"
+						placeholder={data.image}
+						value={image}
+					/>
+				</Form.Group>
 
-					<Form.Group className="mb-3">
-						<Form.Label>Edit Title</Form.Label>
+				<Form.Group className="mb-3">
+					<Form.Label>Edit Title</Form.Label>
 
-						<Form.Control type="text" placeholder={data.title} />
-					</Form.Group>
+					<Form.Control
+						{...register("title", { required: true })}
+						type="text"
+						placeholder={data.title}
+						onChange={onTitleChange}
+					/>
+				</Form.Group>
 
-					<Form.Group className="mb-3">
-						<Form.Label>Edit text</Form.Label>
-						<Form.Control
-							as="textarea"
-							rows={3}
-							placeholder={data.description}
-						/>
-					</Form.Group>
+				<Form.Group className="mb-3">
+					<Form.Label>Edit text</Form.Label>
+					<Form.Control
+						{...register("description", { required: true })}
+						as="textarea"
+						rows={3}
+						placeholder={data.description}
+						onChange={onDescriptionChange}
+					/>
+				</Form.Group>
 
-					<Button variant="primary" type="submit">
-						Update
-					</Button>
-				</Form>
-			</Accordion.Body>
+				<Button variant="primary" type="submit">
+					Update
+				</Button>
+			</Form>
 		</>
 	);
 };
