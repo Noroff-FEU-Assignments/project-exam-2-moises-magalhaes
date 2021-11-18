@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion, Button, Form } from "react-bootstrap";
 import AddNewProducts from "../hooks/addNewProducts";
+import UpdateProduct from "../hooks/updateProduct";
 
 const EditProductsForm = () => {
 	return (
@@ -10,27 +11,7 @@ const EditProductsForm = () => {
 				<Accordion.Item eventKey="1">
 					<Accordion.Header>Edit</Accordion.Header>
 					<Accordion.Body>
-						<Form>
-							<Form.Group controlId="formFile" className="mb-3">
-								<Form.Label>Edit image</Form.Label>
-								<Form.Control type="file" />
-							</Form.Group>
-
-							<Form.Group className="mb-3">
-								<Form.Label>Edit Title</Form.Label>
-
-								<Form.Control type="text" placeholder="Normal text" />
-							</Form.Group>
-
-							<Form.Group className="mb-3">
-								<Form.Label>Edit text</Form.Label>
-								<Form.Control as="textarea" rows={3} />
-							</Form.Group>
-
-							<Button variant="primary" type="submit">
-								Sumbmit change
-							</Button>
-						</Form>
+						<UpdateProduct />
 					</Accordion.Body>
 				</Accordion.Item>
 

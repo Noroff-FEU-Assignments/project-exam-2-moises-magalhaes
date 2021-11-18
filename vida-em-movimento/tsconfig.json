@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/elements/AdminForm.tsx", "components/elements/RegisterForm.jsx", "pages/dashboard/index.jsx", "components/hooks/fetchHome.jsx", "components/hooks/fetchServices.jsx", "components/hooks/fetchProducts.jsx", "components/hooks/addNewProducts.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/elements/AdminForm.tsx", "components/elements/RegisterForm.jsx", "pages/dashboard/index.jsx", "components/hooks/fetchHome.jsx", "components/hooks/fetchServices.jsx", "components/hooks/fetchProducts.jsx", "components/hooks/UpdateNewProduct.jsx", "components/hooks/addNewProducts.jsx"],
   "exclude": ["node_modules"]
 }

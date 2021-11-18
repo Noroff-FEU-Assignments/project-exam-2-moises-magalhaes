@@ -21,7 +21,7 @@ const AddNewProducts = (props: any) => {
 		formState: { errors },
 	} = useForm<FormValues>();
 
-	console.log(watch());
+	// console.log(watch());
 
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");

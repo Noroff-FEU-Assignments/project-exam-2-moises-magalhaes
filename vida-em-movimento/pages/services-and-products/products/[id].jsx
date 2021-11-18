@@ -1,7 +1,7 @@
 import React from "react";
 import FetchProductId from "../../../components/hooks/fetchProductsId";
 
-const ServiceIdPage = () => {
+const ProductidPage = () => {
 	return (
 		<div>
 			<FetchProductId />
@@ -9,4 +9,4 @@ const ServiceIdPage = () => {
 	);
 };
 
-export default ServiceIdPage;
+export default ProductIdPage;
