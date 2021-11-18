@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Accordion, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { baseUrl } from "../../../components/constants/api";
+import Router from "next/router";
 
 // const initialValue = localStorage.getItem("admin") || "{}";
 // const saved = JSON.parse(initialValue);
@@ -42,8 +43,7 @@ const EditIdPage = () => {
 		useEffect(
 			() => setValue(localStorage.getItem(adminValue) || "{}"),
 			[adminValue]
-		),
-			[];
+		);
 
 		return value;
 	};
@@ -58,15 +58,9 @@ const EditIdPage = () => {
 	const onTitleChange = (e) => setTitle(e.target.value);
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
-	// useEffect(() => {
-	// 	const initialValue = localStorage.getItem("admin") || "{}";
-	// 	const saved = JSON.parse(initialValue);
-	// }),
-	// 	[];
-
 	const submitForm = (apiData, e) => {
 		e.preventDefault();
-		console.log(apiData);
+		// console.log(apiData);
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
@@ -90,15 +84,14 @@ const EditIdPage = () => {
 	};
 
 	//delete product
-
-	function deleteProduct(id) {
+	const deleteForm = (id, e) => {
 		e.preventDefault();
+		console.log(id);
 
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
-
-		// console.log(id);
-		const requestDelete = {
+		const data = { id };
+		const requestOptions = {
 			method: "DELETE",
 			headers: {
 				Authorization: "Bearer " + saved.token,
@@ -107,13 +100,15 @@ const EditIdPage = () => {
 			body: JSON.stringify(data),
 		};
 
-		fetch(baseUrl + "products/" + id, requestDelete)
+		fetch(baseUrl + "products/" + id, requestOptions)
 			.then((response) => response.json())
-			.then((res) => console.warn(res))
+			.then((res) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
-	}
+		alert("successful");
+		Router.push("/dashboard/edit-products");
+	};
 
 	return (
 		<>
@@ -157,7 +152,11 @@ const EditIdPage = () => {
 					Update
 				</Button>
 			</Form>
-			<Button onClick={deleteProduct(id)} variant="secondary" type="submit">
+			<Button
+				onClick={(e) => deleteForm(data.id, e)}
+				variant="secondary"
+				type="submit"
+			>
 				Delete
 			</Button>
 		</>

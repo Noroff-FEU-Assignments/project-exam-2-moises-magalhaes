@@ -41,7 +41,7 @@ const AddNewProducts = (props: any) => {
 	const onTitleChange = (e: any) => setTitle(e.target.value);
 	const onDescriptionChange = (e: any) => setDescription(e.target.value);
 
-	const submitForm = (e: any): any => {
+	const submitForm = (productData: any, e: any): any => {
 		e.preventDefault();
 
 		//get authorization
@@ -66,13 +66,8 @@ const AddNewProducts = (props: any) => {
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
-
-		console.log(onImageChange);
-		// if (data.username === "bill") {
-		// 	alert(JSON.stringify(data));
-		// } else {
-		// 	alert("There is an error");
-		// }
+		alert("successful");
+		window.location.reload();
 	};
 
 	return (
