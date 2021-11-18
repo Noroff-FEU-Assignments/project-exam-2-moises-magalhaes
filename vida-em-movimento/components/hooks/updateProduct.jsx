@@ -20,7 +20,10 @@ const UpdateProduct = () => {
 	const MyLocalStorage = (adminValue) => {
 		const [value, setValue] = useState("");
 
-		useEffect(() => setValue(localStorage.getItem(adminValue) || "{}"), []);
+		useEffect(
+			() => setValue(localStorage.getItem(adminValue) || "{}"),
+			[adminValue]
+		);
 
 		return value;
 	};
