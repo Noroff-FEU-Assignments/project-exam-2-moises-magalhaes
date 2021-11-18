@@ -58,6 +58,12 @@ const EditIdPage = () => {
 	const onTitleChange = (e) => setTitle(e.target.value);
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
+	// useEffect(() => {
+	// 	const initialValue = localStorage.getItem("admin") || "{}";
+	// 	const saved = JSON.parse(initialValue);
+	// }),
+	// 	[];
+
 	const submitForm = (apiData, e) => {
 		e.preventDefault();
 		console.log(apiData);
@@ -86,14 +92,16 @@ const EditIdPage = () => {
 	//delete product
 
 	function deleteProduct(id) {
-		// const initialValue = localStorage.getItem("admin") || "{}";
-		// const saved = JSON.parse(initialValue);
+		e.preventDefault();
+
+		const initialValue = localStorage.getItem("admin") || "{}";
+		const saved = JSON.parse(initialValue);
 
 		// console.log(id);
 		const requestDelete = {
 			method: "DELETE",
 			headers: {
-				Authorization: "Bearer " + localStorage.getItem("admin"),
+				Authorization: "Bearer " + saved.token,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(data),
