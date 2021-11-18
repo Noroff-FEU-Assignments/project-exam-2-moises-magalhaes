@@ -25,6 +25,8 @@ const FetchEvents = (props) => {
 				{events.map((object) => (
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
+						<p>{object.date}</p>
+						<p>{object.time}</p>
 						<p>{object.description}</p>
 						<Link href={"/events/" + object.id} passHref>
 							<Button>Find more about</Button>
