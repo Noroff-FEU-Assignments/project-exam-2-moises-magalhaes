@@ -26,7 +26,7 @@ const AddNewProducts = (props: any) => {
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");
 
-		useEffect(() => setValue(localStorage.getItem(adminValue) || "{}"), []);
+		useEffect(() => setValue(localStorage.getItem("adminValue") || "{}"), []);
 
 		return value;
 	};

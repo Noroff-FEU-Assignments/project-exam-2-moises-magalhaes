@@ -14,13 +14,14 @@ const EditIdPage = () => {
 	} = useForm();
 
 	//Fetching data from API
-	const [data, setData] = useState([]);
 	const router = useRouter();
+	const [data, setData] = useState([]);
 	const { id } = router.query;
+	const URL = baseUrl + "products/" + id;
 
 	useEffect(() => {
 		axios
-			.get(baseUrl + "products/" + id)
+			.get(URL)
 			.then((res) => {
 				console.log(res.data);
 				setData(res.data);
@@ -28,14 +29,17 @@ const EditIdPage = () => {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, [id]);
+	}, [URL]);
 
 	//Posting data to API
 
 	const MyLocalStorage = (adminValue) => {
 		const [value, setValue] = useState("");
 
-		useEffect(() => setValue(localStorage.getItem(adminValue) || "{}"), []);
+		useEffect(
+			() => setValue(localStorage.getItem(adminValue) || "{}"),
+			[adminValue]
+		);
 
 		return value;
 	};
@@ -59,7 +63,7 @@ const EditIdPage = () => {
 
 		const data = { image, title, description };
 		const requestOptions = {
-			method: "POST",
+			method: "PUT",
 			headers: {
 				Authorization: "Bearer " + saved.token,
 				"Content-Type": "application/json",

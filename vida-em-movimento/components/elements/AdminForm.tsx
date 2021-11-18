@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import Router from "next/router";
 import axios from "axios";
 import { baseUrl } from "../constants/api";
-import { setUserSession } from "../constants/admAccess";
 
 const schema = yup.object().shape({
 	email: yup
