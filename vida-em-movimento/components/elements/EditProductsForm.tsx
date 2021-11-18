@@ -14,21 +14,6 @@ const EditProductsForm = () => {
 						<UpdateProduct />
 					</Accordion.Body>
 				</Accordion.Item>
-
-				<Accordion.Item eventKey="2">
-					<Accordion.Header>Remove</Accordion.Header>
-					<Accordion.Body>
-						<Form>
-							<Form.Group controlId="formFile" className="mb-3">
-								<Form.Label>Remove product</Form.Label>
-							</Form.Group>
-
-							<Button variant="primary" type="submit">
-								Remove
-							</Button>
-						</Form>
-					</Accordion.Body>
-				</Accordion.Item>
 			</Accordion>
 		</div>
 	);

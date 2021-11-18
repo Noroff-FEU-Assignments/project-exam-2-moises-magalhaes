@@ -6,9 +6,6 @@ import { useForm } from "react-hook-form";
 import { baseUrl } from "../../../components/constants/api";
 import Router from "next/router";
 
-// const initialValue = localStorage.getItem("admin") || "{}";
-// const saved = JSON.parse(initialValue);
-
 const EditIdPage = () => {
 	const {
 		register,
@@ -21,7 +18,7 @@ const EditIdPage = () => {
 	const router = useRouter();
 	const [data, setData] = useState([]);
 	const { id } = router.query;
-	const URL = baseUrl + "products/" + id;
+	const URL = baseUrl + "services/" + id;
 
 	useEffect(() => {
 		axios
@@ -60,7 +57,6 @@ const EditIdPage = () => {
 
 	const submitForm = (apiData, e) => {
 		e.preventDefault();
-		// console.log(apiData);
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
@@ -75,7 +71,7 @@ const EditIdPage = () => {
 			},
 			body: JSON.stringify(data),
 		};
-		fetch(baseUrl + "products/" + id, requestOptions)
+		fetch(baseUrl + "services/" + id, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
@@ -101,19 +97,19 @@ const EditIdPage = () => {
 			body: JSON.stringify(data),
 		};
 
-		fetch(baseUrl + "products/" + id, requestOptions)
+		fetch(baseUrl + "services/" + id, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
 		alert("successful");
-		Router.push("/dashboard/edit-products");
+		Router.push("/dashboard/edit-services");
 	};
 
 	return (
 		<>
-			<Form className="edit-products" onSubmit={handleSubmit(submitForm)}>
+			<Form className="edit-services" onSubmit={handleSubmit(submitForm)}>
 				<Form.Group controlId="formFile" className="mb-3">
 					<Form.Label>Edit image</Form.Label>
 					<Form.Control
