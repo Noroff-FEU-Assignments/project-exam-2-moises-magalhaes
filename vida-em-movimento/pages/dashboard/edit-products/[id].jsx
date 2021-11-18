@@ -54,8 +54,9 @@ const EditIdPage = () => {
 	const onTitleChange = (e) => setTitle(e.target.value);
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
-	const submitForm = (e) => {
+	const submitForm = (apiData, e) => {
 		e.preventDefault();
+		console.log(apiData);
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";

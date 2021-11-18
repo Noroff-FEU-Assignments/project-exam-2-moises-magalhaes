@@ -3,6 +3,7 @@ import { Accordion, Button, Card, Form } from "react-bootstrap";
 import Link from "next/link";
 import axios from "axios";
 import { baseUrl } from "../constants/api";
+import { useForm } from "react-hook-form";
 
 const UpdateProduct = () => {
 	const {
