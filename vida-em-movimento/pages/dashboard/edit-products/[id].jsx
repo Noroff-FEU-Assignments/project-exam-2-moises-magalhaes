@@ -5,6 +5,9 @@ import { Accordion, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { baseUrl } from "../../../components/constants/api";
 
+// const initialValue = localStorage.getItem("admin") || "{}";
+// const saved = JSON.parse(initialValue);
+
 const EditIdPage = () => {
 	const {
 		register,
@@ -39,7 +42,8 @@ const EditIdPage = () => {
 		useEffect(
 			() => setValue(localStorage.getItem(adminValue) || "{}"),
 			[adminValue]
-		);
+		),
+			[];
 
 		return value;
 	};
@@ -73,14 +77,35 @@ const EditIdPage = () => {
 		};
 		fetch(baseUrl + "products/" + id, requestOptions)
 			.then((response) => response.json())
-			.then(
-				(res) => console.log(res)
-				// alert("successfull")
-			)
+			.then((res) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
 	};
+
+	//delete product
+
+	function deleteProduct(id) {
+		// const initialValue = localStorage.getItem("admin") || "{}";
+		// const saved = JSON.parse(initialValue);
+
+		// console.log(id);
+		const requestDelete = {
+			method: "DELETE",
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem("admin"),
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		};
+
+		fetch(baseUrl + "products/" + id, requestDelete)
+			.then((response) => response.json())
+			.then((res) => console.warn(res))
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
+	}
 
 	return (
 		<>
@@ -124,6 +149,9 @@ const EditIdPage = () => {
 					Update
 				</Button>
 			</Form>
+			<Button onClick={deleteProduct(id)} variant="secondary" type="submit">
+				Delete
+			</Button>
 		</>
 	);
 };
