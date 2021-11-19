@@ -11,7 +11,7 @@ const FetchEvents = (props) => {
 		axios
 			.get(baseUrl + "events/")
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				setEvents(res.data);
 			})
 			.catch((err) => {

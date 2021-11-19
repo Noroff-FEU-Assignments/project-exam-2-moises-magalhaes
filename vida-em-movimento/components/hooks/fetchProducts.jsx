@@ -3,10 +3,12 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
+import AddToCart from "./addToCart";
 import Link from "next/link";
 
 const FetchProducts = (props) => {
 	const [product, setProduct] = useState([]);
+
 	useEffect(() => {
 		axios
 			.get(baseUrl + "products/")
@@ -18,6 +20,13 @@ const FetchProducts = (props) => {
 				console.log(err);
 			});
 	}, []);
+
+	//add to cart
+	const [cart, setCart] = useState([]);
+	const submitForm = (product) => {
+		setCart([...cart, product]);
+		localStorage.setItem("cart", JSON.stringify(cart));
+	};
 
 	return (
 		<>
@@ -32,6 +41,9 @@ const FetchProducts = (props) => {
 						>
 							<Button>Find more about</Button>
 						</Link>
+						{/* <Link href="cart/" passHref> */}
+						<Button onClick={() => submitForm(object)}>Add to cart</Button>
+						{/* </Link> */}
 					</Card>
 				))}
 			</div>
