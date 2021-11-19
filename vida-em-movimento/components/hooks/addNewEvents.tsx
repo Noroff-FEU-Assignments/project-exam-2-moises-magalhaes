@@ -9,7 +9,7 @@ type FormValues = {
 	image: string;
 	title: string;
 	description: string;
-	date: number;
+	date: string;
 	time: number;
 };
 
@@ -28,34 +28,43 @@ const AddNewEvents = (props: any) => {
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");
 
-		useEffect(() => setValue(localStorage.getItem("adminValue") || "{}"), []);
+		useEffect(
+			() => setValue(localStorage.getItem(adminValue) || "{}"),
+			[adminValue]
+		);
 
 		return value;
 	};
 
-	const fetchAdmin = MyLocalStorage("admin");
+	MyLocalStorage("admin");
 
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
-	const [time, setTime] = useState("");
-
+	// const [time, setTime] = useState("");
 	const [description, setDescription] = useState("");
 
 	const onImageChange = (e: any) => setImage(e.target.files);
 	const onTitleChange = (e: any) => setTitle(e.target.value);
 	const onDateChange = (e: any) => setDate(e.target.value);
+	// const onTimeChange = (e: any) => setTime(e.target.value);
 	const onDescriptionChange = (e: any) => setDescription(e.target.value);
-	const onTimeChange = (e: any) => setTime(e.target.value);
 
-	const submitForm = (eventData: any, e: any): any => {
+	const submitForm = (_eventData: any, e: any): any => {
 		e.preventDefault();
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
 
-		const data = { image, title, description, date, time };
+		const data = {
+			image,
+			title,
+			description,
+
+			date,
+			// time,
+		};
 		const requestOptions = {
 			method: "POST",
 			headers: {
@@ -64,6 +73,7 @@ const AddNewEvents = (props: any) => {
 			},
 			body: JSON.stringify(data),
 		};
+
 		fetch("http://localhost:1337/events/", requestOptions)
 			.then((response) => response.json())
 			.then((res: void) => console.log(res))
@@ -113,7 +123,7 @@ const AddNewEvents = (props: any) => {
 							/>
 						</Form.Group>
 
-						<Form.Group className="mb-3">
+						{/* <Form.Group className="mb-3">
 							<Form.Label>Add text</Form.Label>
 							<Form.Control
 								{...register("time", { required: true })}
@@ -121,7 +131,8 @@ const AddNewEvents = (props: any) => {
 								placeholder="Write your event date"
 								onChange={onTimeChange}
 							/>
-						</Form.Group>
+						</Form.Group> */}
+
 						<Form.Group className="mb-3">
 							<Form.Label>Add text</Form.Label>
 							<Form.Control

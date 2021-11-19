@@ -59,10 +59,7 @@ const AddNewServices = (props: any) => {
 		};
 		fetch("http://localhost:1337/services/", requestOptions)
 			.then((response) => response.json())
-			.then(
-				(res: void) => console.log(res)
-				// alert("successfull")
-			)
+			.then((res: void) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});

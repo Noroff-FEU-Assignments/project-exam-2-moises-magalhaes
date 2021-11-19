@@ -2,13 +2,14 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import AdminLogout from "../../components/elements/AdminLogout";
 import DashboardNav from "../../components/elements/DashboardNav";
+import EditAboutForm from "../../components/elements/EditAboutForm";
 
 const EditAbout = () => {
 	return (
 		<div>
 			<DashboardNav />
 			<Container>
-				<div>Edit Home here</div>
+				<EditAboutForm />
 				<AdminLogout />
 			</Container>
 		</div>

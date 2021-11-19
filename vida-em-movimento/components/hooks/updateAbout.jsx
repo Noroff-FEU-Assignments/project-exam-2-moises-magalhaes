@@ -5,7 +5,7 @@ import axios from "axios";
 import { baseUrl } from "../constants/api";
 import { useForm } from "react-hook-form";
 
-const UpdateEvent = () => {
+const UpdateAbout = () => {
 	const {
 		register,
 		handleSubmit,
@@ -13,7 +13,7 @@ const UpdateEvent = () => {
 		formState: { errors },
 	} = useForm();
 
-	const [event, setEvent] = useState([]);
+	const [service, setService] = useState([]);
 	const [status, setStatus] = useState(null);
 	const [errorMessage, setErrorMessage] = useState(null);
 
@@ -32,10 +32,10 @@ const UpdateEvent = () => {
 
 	useEffect(() => {
 		axios
-			.get(baseUrl + "Events/")
+			.get(baseUrl + "about/")
 			.then((res) => {
 				// console.log(res);
-				setEvent(res.data);
+				setService(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -44,22 +44,21 @@ const UpdateEvent = () => {
 
 	return (
 		<>
-			<div className="events">
-				{event.map((object) => (
+			<div className="about">
+				{service.map((object) => (
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
 						<h3>{object.id}</h3>
-						<p>{object.date}</p>
-						<p>{object.time}</p>
 						<p>{object.description}</p>
+
 						{/* <Link
-							href={"/Events-and-products/Events/" + object.id}
+							href={"/about/" + object.id}
 							passHref
 						>
 							<Button>edit</Button>
 						</Link> */}
-						<Link href={"/dashboard/edit-events/" + object.id} passHref>
-							<Button>Update Event</Button>
+						<Link href={"/dashboard/edit-about/" + object.id} passHref>
+							<Button>Update service</Button>
 						</Link>
 					</Card>
 				))}
@@ -68,4 +67,4 @@ const UpdateEvent = () => {
 	);
 };
 
-export default UpdateEvent;
+export default UpdateAbout;
