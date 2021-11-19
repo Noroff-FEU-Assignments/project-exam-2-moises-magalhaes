@@ -14,6 +14,11 @@ const DashboardNav = () => {
 								Edit Home
 							</li>
 						</Link>
+						<Link href="/dashboard/edit-testimonies" passHref>
+							<li className="list-group-item list-group-item-action list-group-item-light p-3">
+								Edit Testimonies
+							</li>
+						</Link>
 						<Link href="/dashboard/edit-about" passHref>
 							<li className="list-group-item list-group-item-action list-group-item-light p-3">
 								Edit About

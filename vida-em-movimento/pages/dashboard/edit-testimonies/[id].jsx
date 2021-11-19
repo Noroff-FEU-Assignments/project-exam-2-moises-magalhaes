@@ -6,9 +6,6 @@ import { useForm } from "react-hook-form";
 import { baseUrl } from "../../../components/constants/api";
 import Router from "next/router";
 
-// const initialValue = localStorage.getItem("admin") || "{}";
-// const saved = JSON.parse(initialValue);
-
 const EditIdPage = () => {
 	const {
 		register,
@@ -21,7 +18,7 @@ const EditIdPage = () => {
 	const router = useRouter();
 	const [data, setData] = useState([]);
 	const { id } = router.query;
-	const URL = baseUrl + "events/" + id;
+	const URL = baseUrl + "testimonies/" + id;
 
 	useEffect(() => {
 		axios
@@ -51,22 +48,24 @@ const EditIdPage = () => {
 	MyLocalStorage("admin");
 
 	const [image, setImage] = useState("");
-	const [title, setTitle] = useState("");
+	const [name, setName] = useState("");
+	const [surname, setSurname] = useState("");
+
 	const [description, setDescription] = useState("");
 
 	const onImageChange = (e) => setImage(e.target.files);
-	const onTitleChange = (e) => setTitle(e.target.value);
+	const onNameChange = (e) => setName(e.target.value);
+	const onSurnameChange = (e) => setSurname(e.target.value);
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
 	const submitForm = (apiData, e) => {
 		e.preventDefault();
-		// console.log(apiData);
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
 
-		const data = { image, title, description };
+		const data = { image, name, description, surname };
 		const requestOptions = {
 			method: "PUT",
 			headers: {
@@ -75,7 +74,7 @@ const EditIdPage = () => {
 			},
 			body: JSON.stringify(data),
 		};
-		fetch(baseUrl + "events/" + id, requestOptions)
+		fetch(baseUrl + "testimonies/" + id, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
@@ -101,19 +100,19 @@ const EditIdPage = () => {
 			body: JSON.stringify(data),
 		};
 
-		fetch(baseUrl + "events/" + id, requestOptions)
+		fetch(baseUrl + "testimonies/" + id, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
 		alert("successful");
-		Router.push("/dashboard/edit-events");
+		Router.push("/dashboard/edit-testimonies");
 	};
 
 	return (
 		<>
-			<Form className="edit-events" onSubmit={handleSubmit(submitForm)}>
+			<Form className="edit-testimonies" onSubmit={handleSubmit(submitForm)}>
 				<Form.Group controlId="formFile" className="mb-3">
 					<Form.Label>Edit image</Form.Label>
 					<Form.Control
@@ -122,24 +121,34 @@ const EditIdPage = () => {
 							//  { required: true }
 						)}
 						type="file"
-						defaultValue={data.image}
+						placeholder={data.image}
 						value={image}
 					/>
 				</Form.Group>
 
 				<Form.Group className="mb-3">
-					<Form.Label>Edit Title</Form.Label>
+					<Form.Label>Add name</Form.Label>
 
 					<Form.Control
-						{...register("title", { required: true })}
+						{...register("name", { required: true })}
 						type="text"
-						defaultValue={data.title}
-						onChange={onTitleChange}
+						defaultValue={data.name}
+						onChange={onNameChange}
+					/>
+				</Form.Group>
+				<Form.Group className="mb-3">
+					<Form.Label>Add surname</Form.Label>
+
+					<Form.Control
+						{...register("surname", { required: true })}
+						type="text"
+						defaultValue={data.surname}
+						onChange={onSurnameChange}
 					/>
 				</Form.Group>
 
 				<Form.Group className="mb-3">
-					<Form.Label>Edit text</Form.Label>
+					<Form.Label>Edit description</Form.Label>
 					<Form.Control
 						{...register("description", { required: true })}
 						as="textarea"
