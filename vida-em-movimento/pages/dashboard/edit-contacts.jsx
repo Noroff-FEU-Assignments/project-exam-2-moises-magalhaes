@@ -2,13 +2,14 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import DashboardNav from "../../components/elements/DashboardNav";
 import Logout from "../../components/elements/AdminLogout";
+import EditContactsForm from "../../components/elements/EditContactsForm";
 
 const EditContacts = () => {
 	return (
 		<div>
 			<DashboardNav />
 			<Container>
-				<div>Edit Home here</div>
+				<EditContactsForm />
 				<Logout />
 			</Container>
 		</div>
