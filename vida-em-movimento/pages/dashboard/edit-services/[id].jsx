@@ -118,7 +118,7 @@ const EditIdPage = () => {
 							//  { required: true }
 						)}
 						type="file"
-						placeholder={data.image}
+						defaultValue={data.image}
 						value={image}
 					/>
 				</Form.Group>
@@ -129,7 +129,7 @@ const EditIdPage = () => {
 					<Form.Control
 						{...register("title", { required: true })}
 						type="text"
-						placeholder={data.title}
+						defaultValue={data.title}
 						onChange={onTitleChange}
 					/>
 				</Form.Group>
@@ -140,7 +140,7 @@ const EditIdPage = () => {
 						{...register("description", { required: true })}
 						as="textarea"
 						rows={3}
-						placeholder={data.description}
+						defaultValue={data.description}
 						onChange={onDescriptionChange}
 					/>
 				</Form.Group>
