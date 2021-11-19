@@ -42,9 +42,9 @@ const UpdateProduct = () => {
 			});
 	}, []);
 
-	const submitEdit = (e) => {
-		e.preventDefault();
-	};
+	// const submitEdit = (e) => {
+	// 	e.preventDefault();
+	// };
 
 	return (
 		<>

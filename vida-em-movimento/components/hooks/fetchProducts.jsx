@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
-import AddToCart from "./addToCart";
 import Link from "next/link";
 
 const FetchProducts = (props) => {
