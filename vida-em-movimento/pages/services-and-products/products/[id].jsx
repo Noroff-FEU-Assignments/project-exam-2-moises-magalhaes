@@ -1,7 +1,7 @@
 import React from "react";
 import FetchProductId from "../../../components/hooks/fetchProductsId";
 
-const ProductidPage = () => {
+const ProductIdPage = () => {
 	return (
 		<div>
 			<FetchProductId />
