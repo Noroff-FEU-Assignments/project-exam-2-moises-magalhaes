@@ -16,14 +16,6 @@ const FetchCart = () => {
 		console.log(cartLocalStorage);
 	}, []);
 
-	//checking quantity of individual items
-	// const quantity = cart.reduce((counter, item) => {
-	// 	// const existingItem = prev.find(({ id }) => id === item.id);
-	// 	if (item.title > 0) counter += 1;
-	// 	console.log(counter);
-	// 	return counter;
-	// });
-
 	//taking away duplicated items
 	const uniqueItems = cart.reduce((prev, item) => {
 		const existingItem = prev.find(({ id }) => id === item.id);
@@ -41,11 +33,25 @@ const FetchCart = () => {
 
 			<div className="cart">
 				{uniqueItems.map((object) => (
-					<Card key={object.id}>
-						<h3>{object.title}</h3>
-						<p>{object.description}</p>
-						<p>R$ {object.price},00</p>
-						<MdDelete />
+					<Card key={object.id} className="row">
+						<div className="col-2">
+							<h3>{object.title}</h3>
+							<p>{object.description}</p>
+							<p>R$ {object.price},00</p>
+						</div>
+						<div className="col-2">
+							<Button onClick={() => onAdd(object)} className="add">
+								+
+							</Button>
+
+							<Button onClick={() => onRemove(object)} className="remove">
+								-
+							</Button>
+							<MdDelete />
+						</div>
+						<div>
+							{object.qty} x R$ {object.price.toFixed(2)}
+						</div>
 
 						{/* <Button
 							//  onClick={() => submitForm(object)}

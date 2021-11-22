@@ -22,17 +22,22 @@ const FetchProducts = (props) => {
 
 	//add to cart
 	const [cart, setCart] = useState([]);
+
 	const submitForm = (product) => {
-		setCart([...cart, { ...product, qty: 1 }]);
+		// setCart([...cart, { ...product, qty: 1 }]);
 		const exist = cart.find((x) => x.id === product.id);
 		if (exist) {
-			cart.map((x) =>
-				x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+			setCart(
+				cart.map((x) =>
+					x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+				)
 			);
 		} else {
 			setCart([...cart, { ...product, qty: 1 }]);
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
+
+		console.log({ ...cart, ...product.qty });
 	};
 
 	// const [cart, setCart] = useState([]);
