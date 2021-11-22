@@ -6,6 +6,7 @@ const cart = () => {
 	return (
 		<div>
 			<Heading title="Cart" />
+
 			<FetchCart />
 		</div>
 	);

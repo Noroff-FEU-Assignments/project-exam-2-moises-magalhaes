@@ -55,6 +55,8 @@ const FetchProductId = () => {
 				<h2>{id}</h2>
 				<p>{data.title}</p>
 				<p>{data.description}</p>
+				<p>{data.price}</p>
+
 				{/* <Image src={data.image.url} alt="training" /> */}
 			</div>
 		</>

@@ -23,9 +23,31 @@ const FetchProducts = (props) => {
 	//add to cart
 	const [cart, setCart] = useState([]);
 	const submitForm = (product) => {
-		setCart([...cart, product]);
+		setCart([...cart, { ...product, qty: 1 }]);
+		const exist = cart.find((x) => x.id === product.id);
+		if (exist) {
+			cart.map((x) =>
+				x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+			);
+		} else {
+			setCart([...cart, { ...product, qty: 1 }]);
+		}
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
+
+	// const [cart, setCart] = useState([]);
+	// const submitForm = (product) => {
+	// 	const exist = cart.find((x) => x.id === product.id);
+	// 	if (exist) {
+	// 		cart.map(
+	// 			(x) => (x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x)
+	// 			// localStorage.setItem("cart", JSON.stringify(cart))
+	// 		);
+	// 	} else {
+	// 		setCart([...cart, { ...product, qty: 1 }]);
+	// 	}
+	// 	localStorage.setItem("cart", JSON.stringify(cart));
+	// };
 
 	return (
 		<>
@@ -34,6 +56,8 @@ const FetchProducts = (props) => {
 					<Card key={object.id}>
 						<h3>{object.title}</h3>
 						<p>{object.description}</p>
+						<p>R$ {object.price},00</p>
+
 						<Link
 							href={"/services-and-products/products/" + object.id}
 							passHref
