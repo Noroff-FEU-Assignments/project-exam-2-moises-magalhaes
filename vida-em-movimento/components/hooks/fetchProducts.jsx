@@ -67,5 +67,3 @@ const FetchProducts = (props) => {
 };
 
 export default FetchProducts;
-
-export const getStaticProps = async () => {};

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { MdDelete } from "react-icons/md";
-import Products from "../elements/Products";
 
 const FetchCart = () => {
 	const [cart, setCart] = useState([]);
@@ -30,24 +28,31 @@ const FetchCart = () => {
 
 	//adding item
 	const onAdd = (product) => {
-		//have to find out if Products with "P" and ending in plural is right
-		const exist = cart.find((x) => x.id === Products.id);
+		const exist = cart.find((duplicated) => duplicated.id === product.id);
 		if (exist) {
-			setCart.map((x) =>
-				x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+			setCart(
+				cart.map((duplicated) =>
+					duplicated.id === product.id
+						? { ...exist, qty: exist.qty + 1 }
+						: duplicated
+				)
 			);
 		} else {
 			setCart([...cart, { ...product, qty: 1 }]);
 		}
+		localStorage.setItem("cart", JSON.stringify(cart));
 	};
 	//removing item
 	const onRemove = (product) => {
-		const exist = cart.find((x) => x.id === products.id);
+		const exist = cart.find((x) => x.id === product.id);
+
 		if (exist.qty === 1) {
-			setCart(cart.filter((x) => x.id !== Products.id));
+			setCart(cart.filter((x) => x.id !== product.id));
 		} else {
-			setCart.map((x) =>
-				x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+			setCart(
+				cart.map((x) =>
+					x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+				)
 			);
 		}
 	};
@@ -67,7 +72,6 @@ const FetchCart = () => {
 						<div>
 							<h3>{object.title}</h3>
 							<p>{object.description}</p>
-							{/* <p>R$ {object.price},00</p> */}
 						</div>
 						<div>
 							<Button onClick={() => onAdd(object)} className="add">
@@ -77,20 +81,12 @@ const FetchCart = () => {
 							<Button onClick={() => onRemove(object)} className="remove">
 								-
 							</Button>
-							<MdDelete />
 						</div>
 						<div>
 							{object.qty} x R$ {object.price.toFixed(2)}
 						</div>
-
-						{/* <Button
-							//  onClick={() => submitForm(object)}
-							>
-								go to payment
-							</Button>
-							</Link> */}
 					</Card>
-				))}{" "}
+				))}
 				{cart.length !== 0 && (
 					<>
 						<hr></hr>
@@ -106,11 +102,11 @@ const FetchCart = () => {
 							<div>Total price</div>
 							<div>R$ {totalPrice.toFixed(2)}</div>
 						</div>
+						<Card>
+							<Button>Go to payment</Button>
+						</Card>
 					</>
 				)}
-				<Card>
-					<Button>Go to payment</Button>
-				</Card>
 			</div>
 		</>
 	);
