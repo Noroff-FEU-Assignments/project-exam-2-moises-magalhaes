@@ -4,6 +4,7 @@ import { Accordion, Alert, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import { baseUrl } from "../constants/api";
 
 type FormValues = {
 	image: string;
@@ -57,7 +58,7 @@ const AddNewProducts = (props: any) => {
 			},
 			body: JSON.stringify(data),
 		};
-		fetch("http://localhost:1337/products/", requestOptions)
+		fetch(baseUrl + "my-products/", requestOptions)
 			.then((response) => response.json())
 			.then(
 				(res: void) => console.log(res)
@@ -67,7 +68,7 @@ const AddNewProducts = (props: any) => {
 				console.error("Error adding document: ", error);
 			});
 		alert("successful");
-		window.location.reload();
+		// window.location.reload();
 	};
 
 	return (

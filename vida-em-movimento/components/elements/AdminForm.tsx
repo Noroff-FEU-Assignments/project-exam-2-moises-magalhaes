@@ -51,7 +51,7 @@ function AdminForm(props: any) {
 		const response = await fetch(URL, options);
 		const json = await response.json().then((result) => {
 			if (result.message) {
-				setError(result.message[0].message[0].message);
+				setError(result.message[0].message);
 			} else {
 				localStorage.setItem(
 					"admin",

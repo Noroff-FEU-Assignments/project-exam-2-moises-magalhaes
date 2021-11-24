@@ -32,7 +32,7 @@ const UpdateProduct = () => {
 
 	useEffect(() => {
 		axios
-			.get(baseUrl + "products/")
+			.get(baseUrl + "my-products/")
 			.then((res) => {
 				// console.log(res);
 				setProduct(res.data);

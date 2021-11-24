@@ -4,6 +4,7 @@ import { Accordion, Alert, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import { baseUrl } from "../constants/api";
 
 type FormValues = {
 	image: string;
@@ -57,7 +58,7 @@ const AddNewServices = (props: any) => {
 			},
 			body: JSON.stringify(data),
 		};
-		fetch("http://localhost:1337/services/", requestOptions)
+		fetch(baseUrl + "services/", requestOptions)
 			.then((response) => response.json())
 			.then((res: void) => console.log(res))
 			.catch((error) => {

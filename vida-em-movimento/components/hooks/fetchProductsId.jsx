@@ -39,7 +39,7 @@ const FetchProductId = () => {
 
 	useEffect(() => {
 		axios
-			.get(baseUrl + "products/" + id)
+			.get(baseUrl + "my-products/" + id)
 			.then((res) => {
 				console.log(res.data);
 				setData(res.data);
