@@ -61,10 +61,10 @@ const FetchHome = () => {
 	}, []);
 
 	return (
-		<div className="hero-banner">
+		<>
 			{post.map((object) => (
-				<div key={object.id}>
-					<h3>{object.title}</h3>
+				<div key={object.id} className="hero-banner">
+					<h1>{object.title}</h1>
 					<p>{object.description}</p>
 					{/* <Image
 						src={object.image.url}
@@ -74,7 +74,7 @@ const FetchHome = () => {
 					/> */}
 				</div>
 			))}
-		</div>
+		</>
 	);
 };
 
