@@ -70,22 +70,24 @@ const FetchCart = () => {
 			<div className="cart">
 				{uniqueItems.map((object) => (
 					<Card key={object.id}>
-						<div>
-							<h3>{object.title}</h3>
-							<p>{object.description}</p>
-						</div>
-						<div>
-							<Button onClick={() => onAdd(object)} className="add">
-								+
-							</Button>
+						<Card.Body>
+							<div>
+								<h3>{object.title}</h3>
+								<p>{object.description}</p>
+							</div>
+							<div>
+								<Button onClick={() => onAdd(object)} className="add">
+									+
+								</Button>
 
-							<Button onClick={() => onRemove(object)} className="remove">
-								-
-							</Button>
-						</div>
-						<div>
-							{object.qty} x R$ {object.price.toFixed(2)}
-						</div>
+								<Button onClick={() => onRemove(object)} className="remove">
+									-
+								</Button>
+							</div>
+							<div>
+								{object.qty} x R$ {object.price.toFixed(2)}
+							</div>
+						</Card.Body>
 					</Card>
 				))}
 				{cart.length !== 0 && (

@@ -47,20 +47,22 @@ const UpdateService = () => {
 			<div className="testimonies">
 				{service.map((object) => (
 					<Card key={object.id}>
-						<h3>
-							{object.name} {object.surname}
-						</h3>
-						<p>{object.description}</p>
+						<Card.Body>
+							<h3>
+								{object.name} {object.surname}
+							</h3>
+							<p>{object.description}</p>
 
-						{/* <Link
+							{/* <Link
 							href={"/testimonies-and-products/testimonies/" + object.id}
 							passHref
 						>
 							<Button>edit</Button>
 						</Link> */}
-						<Link href={"/dashboard/edit-testimonies/" + object.id} passHref>
-							<Button>Update service</Button>
-						</Link>
+							<Link href={"/dashboard/edit-testimonies/" + object.id} passHref>
+								<Button>Update service</Button>
+							</Link>
+						</Card.Body>
 					</Card>
 				))}
 			</div>

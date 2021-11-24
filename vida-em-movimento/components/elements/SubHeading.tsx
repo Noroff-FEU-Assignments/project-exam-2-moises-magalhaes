@@ -3,7 +3,7 @@ type Props = {
 };
 
 function SubHeading({ title }: Props) {
-	return <h3>{title}</h3>;
+	return <h2>{title}</h2>;
 }
 
 export default SubHeading;

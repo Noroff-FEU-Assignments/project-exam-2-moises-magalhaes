@@ -23,11 +23,13 @@ const FetchTestimonies = () => {
 			<div className="testimonies">
 				{testimonies.map((object) => (
 					<Card key={object.id}>
-						<p>{object.description}</p>
-						<p>
-							{object.name} {object.surname}
-						</p>
-						<p>{object.trainingType}</p>
+						<Card.Body>
+							<p>{object.description}</p>
+							<p>
+								{object.name} {object.surname}
+							</p>
+							<p>{object.trainingType}</p>
+						</Card.Body>
 					</Card>
 				))}
 			</div>

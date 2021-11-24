@@ -46,19 +46,21 @@ const FetchProducts = (props) => {
 			<div className="products">
 				{product.map((object) => (
 					<Card key={object.id}>
-						<h3>{object.title}</h3>
-						<p>{object.description}</p>
-						<p>R$ {object.price},00</p>
+						<Card.Body>
+							<h3>{object.title}</h3>
+							<p>{object.description}</p>
+							<p>R$ {object.price},00</p>
 
-						<Link
-							href={"/services-and-products/products/" + object.id}
-							passHref
-						>
-							<Button>Find more about</Button>
-						</Link>
-						{/* <Link href="cart/" passHref> */}
-						<Button onClick={() => submitForm(object)}>Add to cart</Button>
-						{/* </Link> */}
+							<Link
+								href={"/services-and-products/products/" + object.id}
+								passHref
+							>
+								<Button>Find more about</Button>
+							</Link>
+							{/* <Link href="cart/" passHref> */}
+							<Button onClick={() => submitForm(object)}>Add to cart</Button>
+							{/* </Link> */}
+						</Card.Body>
 					</Card>
 				))}
 			</div>

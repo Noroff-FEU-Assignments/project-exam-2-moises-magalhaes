@@ -1,0 +1,11 @@
+.card {
+	border: none;
+	margin-bottom: 1.5rem;
+	box-shadow: 0.2rem 0.2rem 5px rgba($dark-grey, 0.3);
+	.card-body {
+		.btn {
+			margin-left: auto !important;
+			text-align: center;
+		}
+	}
+}
