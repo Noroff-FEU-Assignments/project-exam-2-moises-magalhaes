@@ -3,6 +3,8 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import Searchbar from "../hooks/searchbar";
 import CartButton from "../hooks/cartButton";
+import Image from "next/image";
+import logo from "../images/logo-white-types.svg";
 
 interface MenuProps {}
 
@@ -11,7 +13,9 @@ export const NavigationMenu = (Props: MenuProps) => {
 		<>
 			<Navbar bg="dark" expand="lg" variant="dark">
 				<Container>
-					<Navbar.Brand href="/">Vida em Movimento</Navbar.Brand>
+					<Navbar.Brand href="/">
+						<Image src={logo} alt="logo" width={100} height={40} />
+					</Navbar.Brand>
 					<CartButton />
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">

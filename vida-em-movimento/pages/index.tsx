@@ -13,15 +13,18 @@ import Products from "../components/elements/Products";
 import Services from "../components/elements/Services";
 import Events from "../components/elements/Events";
 import Testimonies from "../components/elements/Testimonies";
+import { Container } from "react-bootstrap";
 
 const Home: NextPage = () => {
 	return (
 		<>
 			<HeroBanner />
-			<Services />
-			<Products />
-			<Testimonies />
-			<Events />
+			<Container>
+				<Services />
+				<Products />
+				<Testimonies />
+				<Events />
+			</Container>
 		</>
 	);
 };

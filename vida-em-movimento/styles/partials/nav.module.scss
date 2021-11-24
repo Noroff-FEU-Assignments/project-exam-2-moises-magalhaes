@@ -1,7 +1,30 @@
 .bg-dark {
 	background-color: $primary !important;
 
-	.navbar-toggler {
-		border: none;
+	.navbar-brand {
+		:hover {
+			-moz-opacity: 0.5;
+			-khtml-opacity: 0.5;
+			opacity: 0.5;
+		}
 	}
+	//shopping cart
+	.btn {
+		margin-left: auto;
+		svg {
+			height: 1.6rem;
+			width: 1.7rem;
+
+			path {
+				stroke: $white;
+			}
+		}
+		:hover {
+			stroke: rgba($white, 0.5);
+		}
+	}
+}
+.navbar-toggler {
+	border: none;
+	color: rgba($white, 1) !important;
 }
