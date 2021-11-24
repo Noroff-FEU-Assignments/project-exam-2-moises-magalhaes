@@ -1,0 +1,10 @@
+.btn:focus,
+.btn:active {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn-primary {
+	background-color: $primary !important;
+	border: none;
+}

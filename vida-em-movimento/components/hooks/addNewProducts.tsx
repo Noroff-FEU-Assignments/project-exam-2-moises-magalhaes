@@ -60,15 +60,12 @@ const AddNewProducts = (props: any) => {
 		};
 		fetch(baseUrl + "my-products/", requestOptions)
 			.then((response) => response.json())
-			.then(
-				(res: void) => console.log(res)
-				// alert("successfull")
-			)
+			.then((res: void) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
 		alert("successful");
-		// window.location.reload();
+		window.location.reload();
 	};
 
 	return (

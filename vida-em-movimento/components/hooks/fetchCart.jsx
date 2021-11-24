@@ -55,6 +55,7 @@ const FetchCart = () => {
 				)
 			);
 		}
+		localStorage.setItem("cart", JSON.stringify(cart));
 	};
 
 	//total price

@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Footer from "./Footer";
 import { NavigationMenu } from "./NavigationMenu";
+import style from "../../styles/partials/nav.module.scss";
 
 type Props = {
 	children: JSX.Element | JSX.Element[] | string | string[];
@@ -12,7 +13,7 @@ const Layout = ({ children }: Props) => {
 		<>
 			<main>
 				<NavigationMenu />
-				<Container>{children}</Container>
+				<div>{children}</div>
 				<Footer />
 			</main>
 		</>

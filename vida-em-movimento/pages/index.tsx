@@ -9,7 +9,6 @@ import {
 	useQuery,
 	gql,
 } from "@apollo/client";
-import styles from "../styles/Home.module.css";
 import Products from "../components/elements/Products";
 import Services from "../components/elements/Services";
 import Events from "../components/elements/Events";
