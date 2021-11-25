@@ -4,10 +4,10 @@ import FetchAboutPage from "../components/hooks/fetchAboutPage";
 
 function about() {
 	return (
-		<div>
+		<>
 			<Heading title="About us" />
 			<FetchAboutPage />
-		</div>
+		</>
 	);
 }
 

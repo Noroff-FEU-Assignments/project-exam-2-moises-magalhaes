@@ -21,7 +21,7 @@ const FetchEvents = (props) => {
 
 	return (
 		<>
-			<div className="events">
+			<div className="event">
 				{events.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>
@@ -30,7 +30,7 @@ const FetchEvents = (props) => {
 							<p>{object.time}</p>
 							<p>{object.description}</p>
 							<Link href={"/events/" + object.id} passHref>
-								<Button>Find more about</Button>
+								<Button className="btn-secondary">Find more about</Button>
 							</Link>
 						</Card.Body>
 					</Card>

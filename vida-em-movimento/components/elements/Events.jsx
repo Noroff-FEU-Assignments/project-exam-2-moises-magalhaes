@@ -4,7 +4,7 @@ import SubHeading from "./SubHeading";
 
 const Events = () => {
 	return (
-		<div>
+		<div className="events">
 			<SubHeading title="Upcoming events" />
 			<FetchEvents />
 			<Button>Find more about</Button>

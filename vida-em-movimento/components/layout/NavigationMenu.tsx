@@ -17,10 +17,8 @@ export const NavigationMenu = (Props: MenuProps) => {
 						<Image src={logo} alt="logo" width={100} height={40} />
 					</Navbar.Brand>
 					<CartButton />
-					<Navbar.Toggle aria-controls="basic-navbar-nav">
-						<span className="navbar-toggler-icon"></span>
-						<span className="navbar-close-icon"></span>
-					</Navbar.Toggle>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
 							<Link href="/" passHref>
@@ -42,9 +40,6 @@ export const NavigationMenu = (Props: MenuProps) => {
 							</Link>
 							<Link href="/cart" passHref>
 								<Nav.Link>Cart</Nav.Link>
-							</Link>
-							<Link href="/login" passHref>
-								<Nav.Link>Login</Nav.Link>
 							</Link>
 						</Nav>
 					</Navbar.Collapse>

@@ -2,6 +2,8 @@
 	background-color: $primary !important;
 	.container {
 		.navbar-brand {
+			z-index: 2;
+
 			:hover {
 				-moz-opacity: 0.5;
 				-khtml-opacity: 0.5;
@@ -11,7 +13,12 @@
 		//shopping cart
 		.btn {
 			margin-left: auto;
-			margin-right: 3rem;
+			:hover {
+				-moz-opacity: 0.5;
+				-khtml-opacity: 0.5;
+				opacity: 0.5;
+			}
+			// margin-right: 3rem;
 			svg {
 				height: 1.6rem;
 				width: 1.7rem;
@@ -33,13 +40,16 @@
 		right: 0.7rem;
 		overflow: hidden;
 		position: fixed;
-		// &.collapsed {
+		background-color: $primary;
 		.navbar-toggler-icon {
 			background-image: url("../../components/images/close-button.svg");
 			color: $white;
 		}
-		// }
 		&.collapsed {
+			position: relative;
+			right: 0 !important;
+			top: 0 !important;
+
 			.navbar-toggler-icon {
 				background-image: url("../../components/images/hamburger.svg");
 				color: $white;
