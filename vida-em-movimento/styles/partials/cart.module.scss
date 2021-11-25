@@ -1,4 +1,8 @@
 .cart {
+	p {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
 	.product {
 		display: grid;
 		span {
@@ -16,6 +20,7 @@
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					grid-column-gap: 5px;
+					margin-top: 2rem;
 					.buttons {
 						display: flex;
 						.btn {
@@ -26,10 +31,17 @@
 								height: 2rem;
 							}
 						}
-						p {
-							margin-top: auto;
-							margin-bottom: auto;
-						}
+					}
+				}
+				.line-2 {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					margin-right: 0.7rem;
+					svg {
+						width: 2rem;
+						height: 2rem;
+						color: $primary;
 					}
 				}
 			}

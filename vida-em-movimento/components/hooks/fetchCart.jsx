@@ -3,6 +3,7 @@ import { Button, Card, Container } from "react-bootstrap";
 import Image from "next/image";
 import watch from "../images/david-svihovec-gtQddXwuS18-unsplash.jpg";
 import { BiPlusCircle, BiMinusCircle } from "react-icons/bi";
+import { CgTrashEmpty } from "react-icons/cg";
 
 const FetchCart = () => {
 	const [cart, setCart] = useState([]);
@@ -46,7 +47,7 @@ const FetchCart = () => {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
 	//removing item
-	const onRemove = (product) => {
+	const onSubtract = (product) => {
 		const exist = cart.find((x) => x.id === product.id);
 
 		if (exist.qty === 1) {
@@ -80,8 +81,9 @@ const FetchCart = () => {
 									<div className="title">
 										<h4>{object.title}</h4>
 									</div>
-									<div className="price">
-										<p>R$ {object.price.toFixed(2)}</p>
+									<div className="line-2">
+										<p>R$ {object.price.toFixed(2)}</p>{" "}
+										<CgTrashEmpty onClick={() => onRemove(object)} />
 									</div>
 									<div className="quantity">
 										<p>Quantidade</p>
@@ -93,7 +95,7 @@ const FetchCart = () => {
 											</Button>
 											<p>{object.qty}</p>
 											<Button
-												onClick={() => onRemove(object)}
+												onClick={() => onSubtract(object)}
 												className="remove"
 											>
 												<BiMinusCircle />
