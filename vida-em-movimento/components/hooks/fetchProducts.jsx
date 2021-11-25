@@ -58,7 +58,12 @@ const FetchProducts = (props) => {
 								<Button>Find more about</Button>
 							</Link>
 							{/* <Link href="cart/" passHref> */}
-							<Button onClick={() => submitForm(object)}>Add to cart</Button>
+							<Button
+								onClick={() => submitForm(object)}
+								className="btn-secondary"
+							>
+								Add to cart
+							</Button>
 							{/* </Link> */}
 						</Card.Body>
 					</Card>

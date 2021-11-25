@@ -1,54 +1,55 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-
+import Link from "next/link";
+import {
+	FaMapMarkerAlt,
+	FaFacebookF,
+	FaInstagram,
+	FaWhatsapp,
+} from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 const Footer = () => {
 	return (
 		<>
 			<footer>
 				<Container>
 					<div className="footer-left col-md-4 col-sm-6">
-						<p className="menu">
-							<a href="#"> Home</a> <a href="#"> About</a>
-							<a href="#"> Services and Products</a> <a href="#"> Portfolio</a>{" "}
-							<a href="#"> Events</a> <a href="#">Contacts</a>
-							<a href="#">Cart</a>
-						</p>
-
-						<div className="icons">
-							<a href="#">
-								<i className="fa fa-facebook"></i>
-							</a>
-							<a href="#">
-								<i className="fa fa-twitter"></i>
-							</a>
-							<a href="#">
-								<i className="fa fa-linkedin"></i>
-							</a>
-							<a href="#">
-								<i className="fa fa-google-plus"></i>
-							</a>
-							<a href="#">
-								<i className="fa fa-instagram"></i>
-							</a>
+						<div className="menu">
+							<Link href="/"> Home</Link>
+							<Link href="/about"> About</Link>
+							<Link href="/services-and-products"> Services and Products</Link>
+							<Link href="/events"> Events</Link>
+							<Link href="/contacts">Contacts</Link>
+							<Link href="/cart">Cart</Link>
 						</div>
 					</div>
 					<div className="footer-center col-md-4 col-sm-6">
-						<div>
-							<i className="fa fa-map-marker"></i>
+						<div className="address">
+							<span>
+								<FaMapMarkerAlt />
+								<h2>Address</h2>
+							</span>
+
 							<p>
-								<span> Rua Professora Eva mota, 15, Cohab São Francisco</span>
-								Petrolina, PE - Brasil
+								Rua Professora Eva mota, 15, Cohab São Francisco Petrolina, PE -
+								Brasil
 							</p>
 						</div>
-						<div>
-							<i className="fa fa-phone"></i>
-							<p> (+55) 87 9 0000 0000</p>
+
+						<div className="icons">
+							<a href="#">
+								<FaFacebookF />
+							</a>
+							<a href="#">
+								<FaInstagram />
+							</a>
+							<a href="#">
+								<FaWhatsapp />
+							</a>
 						</div>
-						<div>
-							<i className="fa fa-envelope"></i>
-							<p>
-								<a href="#"> office@company.com</a>
-							</p>
+						<div className="email">
+							<HiOutlineMail />
+							<a href="#"> info@vidaemmovimentopnz.com.br</a>
 						</div>
 					</div>
 					<div className="footer-right col-md-4 col-sm-6">
@@ -56,7 +57,7 @@ const Footer = () => {
 							<span> Vida em Movimento</span>
 						</h2>
 						<p className="name">
-							All Rights reserved by &copy; MoisesMdesign 2021
+							All Rights reserved by &copy; Moises Magalhaes design 2021
 						</p>
 					</div>
 				</Container>

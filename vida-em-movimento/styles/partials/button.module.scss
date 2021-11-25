@@ -4,9 +4,15 @@
 	box-shadow: none !important;
 }
 .btn {
+	font-weight: 700;
 	border-radius: 0.5rem;
 	&.btn-primary {
 		background-color: $primary !important;
 		border: none;
+	}
+	&.btn-secondary {
+		background-color: $yellow !important;
+		color: $black !important;
+		margin-top: 10px;
 	}
 }
