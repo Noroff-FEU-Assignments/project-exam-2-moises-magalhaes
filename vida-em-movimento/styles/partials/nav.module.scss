@@ -1,30 +1,69 @@
 .bg-dark {
 	background-color: $primary !important;
-
-	.navbar-brand {
-		:hover {
-			-moz-opacity: 0.5;
-			-khtml-opacity: 0.5;
-			opacity: 0.5;
-		}
-	}
-	//shopping cart
-	.btn {
-		margin-left: auto;
-		svg {
-			height: 1.6rem;
-			width: 1.7rem;
-
-			path {
-				stroke: $white;
+	.container {
+		.navbar-brand {
+			:hover {
+				-moz-opacity: 0.5;
+				-khtml-opacity: 0.5;
+				opacity: 0.5;
 			}
 		}
-		:hover {
-			stroke: rgba($white, 0.5);
+		//shopping cart
+		.btn {
+			margin-left: auto;
+			margin-right: 3rem;
+			svg {
+				height: 1.6rem;
+				width: 1.7rem;
+
+				path {
+					stroke: $white;
+				}
+			}
+			:hover {
+				stroke: rgba($white, 0.5);
+			}
 		}
 	}
-}
-.navbar-toggler {
-	border: none;
-	color: rgba($white, 1) !important;
+	.navbar-toggler {
+		border: none;
+		color: transparent;
+		z-index: 2;
+		top: 1rem;
+		right: 0.7rem;
+		overflow: hidden;
+		position: fixed;
+		// &.collapsed {
+		.navbar-toggler-icon {
+			background-image: url("../../components/images/close-button.svg");
+			color: $white;
+		}
+		// }
+		&.collapsed {
+			.navbar-toggler-icon {
+				background-image: url("../../components/images/hamburger.svg");
+				color: $white;
+			}
+		}
+	}
+	.navbar-collapse {
+		.me-auto {
+			margin-top: 4.1rem;
+			a {
+				text-align: center;
+			}
+			.nav-link {
+				color: $white;
+			}
+		}
+		&.show {
+			top: 0;
+			left: 0;
+			z-index: 1;
+			position: fixed;
+			height: 100%;
+			background-color: $primary;
+			min-width: 100%;
+		}
+	}
 }

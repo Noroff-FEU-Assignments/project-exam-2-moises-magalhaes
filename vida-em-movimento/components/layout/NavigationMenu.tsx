@@ -17,7 +17,10 @@ export const NavigationMenu = (Props: MenuProps) => {
 						<Image src={logo} alt="logo" width={100} height={40} />
 					</Navbar.Brand>
 					<CartButton />
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Toggle aria-controls="basic-navbar-nav">
+						<span className="navbar-toggler-icon"></span>
+						<span className="navbar-close-icon"></span>
+					</Navbar.Toggle>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
 							<Link href="/" passHref>
