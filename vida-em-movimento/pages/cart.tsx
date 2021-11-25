@@ -4,9 +4,8 @@ import FetchCart from "../components/hooks/fetchCart";
 
 const cart = () => {
 	return (
-		<div>
+		<div className="cart">
 			<Heading title="Cart" />
-
 			<FetchCart />
 		</div>
 	);

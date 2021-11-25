@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
+import Image from "next/image";
+import watch from "../images/david-svihovec-gtQddXwuS18-unsplash.jpg";
+import { BiPlusCircle, BiMinusCircle } from "react-icons/bi";
 
 const FetchCart = () => {
 	const [cart, setCart] = useState([]);
@@ -65,52 +68,64 @@ const FetchCart = () => {
 
 	return (
 		<>
-			<div>{cart.length === 0 && <h1>The cart is empty</h1>}</div>
+			<Container>
+				<div>{cart.length === 0 && <h1>The cart is empty</h1>}</div>
 
-			<div className="cart">
-				{uniqueItems.map((object) => (
-					<Card key={object.id}>
-						<Card.Body>
-							<div>
-								<h3>{object.title}</h3>
-								<p>{object.description}</p>
-							</div>
-							<div>
-								<Button onClick={() => onAdd(object)} className="add">
-									+
-								</Button>
+				<div className="cart">
+					{uniqueItems.map((object) => (
+						<Card key={object.id} className="product">
+							<Card.Body>
+								<Image src={watch} alt="watch" />
+								<div className="info">
+									<div className="title">
+										<h4>{object.title}</h4>
+									</div>
+									<div className="price">
+										<p>R$ {object.price.toFixed(2)}</p>
+									</div>
+									<div className="quantity">
+										<p>Quantidade</p>
+										<div className="buttons">
+											{/* <BiPlusCircle></BiPlusCircle> */}
 
-								<Button onClick={() => onRemove(object)} className="remove">
-									-
-								</Button>
-							</div>
-							<div>
-								{object.qty} x R$ {object.price.toFixed(2)}
-							</div>
-						</Card.Body>
-					</Card>
-				))}
-				{cart.length !== 0 && (
-					<>
-						<hr></hr>
-						<div className="items-price">
-							<div>Items price</div>
-							<div>R$ {itemsPrice.toFixed(2)}</div>
-						</div>
-						<div className="shipping-price">
-							<div>Shipping price</div>
-							<div>R$ {shippingPrice.toFixed(2)}</div>
-						</div>
-						<div className="total-price">
-							<div>Total price</div>
-							<div>R$ {totalPrice.toFixed(2)}</div>
-						</div>
-						<Card>
-							<Button>Go to payment</Button>
+											<Button onClick={() => onAdd(object)} className="add">
+												<BiPlusCircle />
+											</Button>
+											<p>{object.qty}</p>
+											<Button
+												onClick={() => onRemove(object)}
+												className="remove"
+											>
+												<BiMinusCircle />
+											</Button>
+										</div>
+									</div>
+								</div>
+							</Card.Body>
 						</Card>
-					</>
-				)}
-			</div>
+					))}
+					{cart.length !== 0 && (
+						<>
+							<hr></hr>
+							<div className="items-price">
+								<div>Items price</div>
+								<p>R$ {itemsPrice.toFixed(2)}</p>
+							</div>
+							<div className="shipping-price">
+								<div>Shipping price</div>
+								<p>R$ {shippingPrice.toFixed(2)}</p>
+							</div>
+							<div className="total-price">
+								<div>Total price</div>
+								<p>R$ {totalPrice.toFixed(2)}</p>
+							</div>
+							<Card>
+								<Button>Go to payment</Button>
+							</Card>
+						</>
+					)}
+				</div>
+			</Container>
 		</>
 	);
 };

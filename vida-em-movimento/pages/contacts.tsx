@@ -5,7 +5,7 @@ import Address from "../components/elements/Address";
 
 const contacts = () => {
 	return (
-		<div>
+		<div className="contacts">
 			<ContactMedia />
 			<ContactForm />
 			<Address />
