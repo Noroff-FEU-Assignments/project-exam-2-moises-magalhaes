@@ -46,7 +46,7 @@ const FetchCart = () => {
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
-	//removing item
+	//subtracting item
 	const onSubtract = (product) => {
 		const exist = cart.find((x) => x.id === product.id);
 
@@ -60,6 +60,14 @@ const FetchCart = () => {
 			);
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
+	};
+	//remove item
+	const onRemove = (product) => {
+		const exist = cart.find((x) => x.id === product.id);
+		if (exist.qty) {
+			setCart(cart.filter((x) => x.id !== product.id));
+			localStorage.setItem("cart", JSON.stringify(cart));
+		}
 	};
 
 	//total price
@@ -82,7 +90,7 @@ const FetchCart = () => {
 										<h4>{object.title}</h4>
 									</div>
 									<div className="line-2">
-										<p>R$ {object.price.toFixed(2)}</p>{" "}
+										<p>R$ {object.price.toFixed(2)}</p>
 										<CgTrashEmpty onClick={() => onRemove(object)} />
 									</div>
 									<div className="quantity">

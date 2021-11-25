@@ -53,10 +53,13 @@ footer {
 				justify-content: center;
 				flex-wrap: wrap;
 				margin-top: 2rem;
+				align-items: flex-end;
 				svg {
+					padding-top: 1.2rem;
 					stroke: $white;
-					height: 2rem;
+					height: 2.7rem;
 					width: 2rem;
+					margin-right: 0.2rem;
 				}
 				a {
 					color: $white;
