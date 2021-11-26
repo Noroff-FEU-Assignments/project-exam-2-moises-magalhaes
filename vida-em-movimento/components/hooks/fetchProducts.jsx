@@ -43,7 +43,7 @@ const FetchProducts = (props) => {
 
 	return (
 		<>
-			<div className="products">
+			<div className="products cards">
 				{product.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>

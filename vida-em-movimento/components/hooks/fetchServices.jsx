@@ -21,7 +21,7 @@ const FetchServices = (props) => {
 
 	return (
 		<>
-			<div className="services">
+			<div className="services cards">
 				{service.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>

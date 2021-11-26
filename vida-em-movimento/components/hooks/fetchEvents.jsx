@@ -21,7 +21,7 @@ const FetchEvents = (props) => {
 
 	return (
 		<>
-			<div className="event">
+			<div className="event cards">
 				{events.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>

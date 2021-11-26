@@ -10,3 +10,25 @@
 		}
 	}
 }
+
+@media screen and (min-width: 576px) {
+	.cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+		.card {
+			.card-body {
+				display: flex;
+				flex-direction: column;
+				.btn {
+					// position: absolute;
+					margin-top: auto;
+					align-self: flex-end;
+				}
+				.btn-secondary {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}

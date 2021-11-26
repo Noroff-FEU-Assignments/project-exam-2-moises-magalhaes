@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { FaMapMarkerAlt, FaRegClock } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Address = () => {
 	return (
@@ -23,9 +23,6 @@ const Address = () => {
 				allowFullScreen=""
 				loading="lazy"
 			></iframe>
-			<div>
-				<FaRegClock />
-			</div>
 		</>
 	);
 };

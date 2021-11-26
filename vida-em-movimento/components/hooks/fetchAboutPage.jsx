@@ -25,7 +25,14 @@ const FetchAboutPage = () => {
 	return (
 		<>
 			<div className="About">
-				<Image src={guy} alt="man running" />
+				<div className="box">
+					<Image
+						src={guy}
+						alt="man running"
+						layout="responsive"
+						className="about-image"
+					/>
+				</div>
 				<Container>
 					{about.map((object) => (
 						<div key={object.id}>

@@ -51,7 +51,7 @@ const FetchProductId = () => {
 
 	return (
 		<>
-			<div className="products">
+			<div className="product">
 				<h2>{id}</h2>
 				<p>{data.title}</p>
 				<p>{data.description}</p>

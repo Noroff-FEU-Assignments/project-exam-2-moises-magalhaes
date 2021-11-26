@@ -22,3 +22,11 @@
 		}
 	}
 }
+
+@media screen and (min-width: 576px) {
+	.contacts {
+		iframe {
+			height: 400px;
+		}
+	}
+}

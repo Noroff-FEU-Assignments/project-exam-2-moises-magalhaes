@@ -20,7 +20,7 @@ const FetchTestimonies = () => {
 
 	return (
 		<>
-			<div className="testimonies">
+			<div className="testimonies cards">
 				{testimonies.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>

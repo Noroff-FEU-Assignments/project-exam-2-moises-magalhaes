@@ -80,35 +80,37 @@ const FetchCart = () => {
 			<Container>
 				<div>{cart.length === 0 && <h1>The cart is empty</h1>}</div>
 
-				<div className="cart">
+				<div className="cart cards">
 					{uniqueItems.map((object) => (
 						<Card key={object.id} className="product">
 							<Card.Body>
-								<Image src={watch} alt="watch" />
+								<div className="box">
+									<Image src={watch} alt="watch" layout="responsive" />
+								</div>
 								<div className="info">
 									<div className="title">
 										<h4>{object.title}</h4>
 									</div>
-									<div className="line-2">
+									<div className="line-2 price">
 										<p>R$ {object.price.toFixed(2)}</p>
+									</div>
+									<div className="remove-btn">
 										<CgTrashEmpty onClick={() => onRemove(object)} />
 									</div>
 									<div className="quantity">
 										<p>Quantidade</p>
-										<div className="buttons">
-											{/* <BiPlusCircle></BiPlusCircle> */}
-
-											<Button onClick={() => onAdd(object)} className="add">
-												<BiPlusCircle />
-											</Button>
-											<p>{object.qty}</p>
-											<Button
-												onClick={() => onSubtract(object)}
-												className="remove"
-											>
-												<BiMinusCircle />
-											</Button>
-										</div>
+									</div>
+									<div className="buttons">
+										<Button onClick={() => onAdd(object)} className="add">
+											<BiPlusCircle />
+										</Button>
+										<p>{object.qty}</p>
+										<Button
+											onClick={() => onSubtract(object)}
+											className="remove"
+										>
+											<BiMinusCircle />
+										</Button>
 									</div>
 								</div>
 							</Card.Body>
