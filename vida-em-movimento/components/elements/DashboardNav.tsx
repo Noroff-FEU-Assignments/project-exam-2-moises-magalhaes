@@ -1,14 +1,24 @@
 import Link from "next/link";
+import { BiGridAlt } from "react-icons/bi";
+import AccordionDashboard from "../hooks/AccordionDashboard";
 
+import SubHeading from "./SubHeading";
 const DashboardNav = () => {
 	return (
-		<div>
-			<div className="d-flex" id="wrapper">
-				<div className="border-end bg-white" id="sidebar-wrapper">
-					<div className="sidebar-heading border-bottom bg-light">
-						My admin page Dashboard
+		<>
+			<div className="d-flex admin-dashboard" id="wrapper">
+				<div className="border-end" id="sidebar-wrapper">
+					<div className="sidebar-heading container">
+						<span className="icon">
+							<BiGridAlt />
+						</span>
+
+						<SubHeading title="Dashboard" />
 					</div>
-					<div className="list-group list-group-flush">
+					{/*mobile dashboard */}
+					<AccordionDashboard />
+					{/* desktop dashboard */}
+					<div className="list-group list-group-flush desktop">
 						<Link href="/dashboard" passHref>
 							<li className="list-group-item list-group-item-action list-group-item-light p-3">
 								Edit Home
@@ -48,7 +58,7 @@ const DashboardNav = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

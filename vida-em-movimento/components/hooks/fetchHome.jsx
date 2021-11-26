@@ -1,34 +1,7 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../constants/api";
 import Image from "next/image";
-import {
-	ApolloClient,
-	InMemoryCache,
-	ApolloProvider,
-	useQuery,
-	gql,
-} from "@apollo/client";
 import axios from "axios";
-
-// export const url = process.process.env.API_URL + "heroes/";
-
-// import Card from "react-bootstrap";
-
-// export const getHero = async () => {
-// 	const res = await fetch(baseUrl + "heroes");
-// 	const data = await res.json();
-// 	console.log(data);
-
-// 	// return (
-// 	// 	<>
-// 	// 		{data.map((object: any) => {
-// 	// 			<div key={object.id}>
-// 	// 				<h3>{object.title}</h3>
-// 	// 			</div>;
-// 	// 		})}
-// 	// 	</>
-// 	// );
-// };
 
 const FetchHome = () => {
 	const [post, setPost] = useState([]);

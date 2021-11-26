@@ -6,13 +6,13 @@ import EditContactsForm from "../../components/elements/EditContactsForm";
 
 const EditContacts = () => {
 	return (
-		<div>
+		<>
 			<DashboardNav />
 			<Container>
 				<EditContactsForm />
 				<Logout />
 			</Container>
-		</div>
+		</>
 	);
 };
 

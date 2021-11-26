@@ -6,13 +6,13 @@ import EditAboutForm from "../../components/elements/EditAboutForm";
 
 const EditAbout = () => {
 	return (
-		<div>
+		<>
 			<DashboardNav />
 			<Container>
 				<EditAboutForm />
 				<AdminLogout />
 			</Container>
-		</div>
+		</>
 	);
 };
 
