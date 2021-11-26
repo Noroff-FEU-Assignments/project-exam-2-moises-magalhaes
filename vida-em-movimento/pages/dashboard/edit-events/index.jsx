@@ -6,13 +6,13 @@ import EditEventsForm from "../../../components/elements/EditEventsForm";
 
 const EditEvents = () => {
 	return (
-		<div>
+		<>
 			<DashboardNav />
 			<Container>
 				<EditEventsForm />
 				<Logout />
 			</Container>
-		</div>
+		</>
 	);
 };
 

@@ -44,7 +44,7 @@ const UpdateEvent = () => {
 
 	return (
 		<>
-			<div className="events">
+			<div className="edit-events">
 				{event.map((object) => (
 					<Card key={object.id}>
 						<Card.Body>
