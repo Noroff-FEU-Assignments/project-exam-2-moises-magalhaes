@@ -1,0 +1,14 @@
+.wrapper {
+	background-color: $white;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.admin-page {
+	form {
+		.mb-3 {
+			.form-label {
+				display: none;
+			}
+		}
+	}
+}

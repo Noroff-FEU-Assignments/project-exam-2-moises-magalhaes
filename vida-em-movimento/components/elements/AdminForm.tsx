@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import Heading from "./Heading";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -89,36 +89,39 @@ function AdminForm(props: any) {
 	return (
 		<>
 			<Heading title="Admin Login" />
+			<div className="wrapper">
+				<Container className="admin-page">
+					<Form onSubmit={handleSubmit(submitForm)}>
+						<Form.Group className="mb-3" controlId="formBasicEmail">
+							<Form.Label>Email address</Form.Label>
+							<Form.Control
+								{...register("email", { required: true })}
+								type="email"
+								placeholder="Enter email"
+								onChange={(e) =>
+									setDetails({ ...details, email: e.target.value })
+								}
+							/>
+							{errors.email && <p>{errors.email?.message}</p>}
+						</Form.Group>
 
-			<Form onSubmit={handleSubmit(submitForm)}>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label>Email address</Form.Label>
-					<Form.Control
-						{...register("email", { required: true })}
-						type="email"
-						placeholder="Enter email"
-						onChange={(e) => setDetails({ ...details, email: e.target.value })}
-					/>
-					{errors.email && <p>{errors.email?.message}</p>}
-				</Form.Group>
-
-				<Form.Group className="mb-3" controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						{...register("password", {
-							required: true,
-							minLength: 8,
-						})}
-						type="password"
-						placeholder="Password"
-						onChange={(e) =>
-							setDetails({ ...details, password: e.target.value })
-						}
-						value={details.password}
-					/>
-					{errors.password && <p>{errors.password?.message}</p>}
-				</Form.Group>
-				{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+						<Form.Group className="mb-3" controlId="formBasicPassword">
+							<Form.Label>Password</Form.Label>
+							<Form.Control
+								{...register("password", {
+									required: true,
+									minLength: 8,
+								})}
+								type="password"
+								placeholder="Password"
+								onChange={(e) =>
+									setDetails({ ...details, password: e.target.value })
+								}
+								value={details.password}
+							/>
+							{errors.password && <p>{errors.password?.message}</p>}
+						</Form.Group>
+						{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
 					<Form.Check
 						{...register("checkbox")}
 						type="checkbox"
@@ -126,10 +129,12 @@ function AdminForm(props: any) {
 					/>
 				</Form.Group> */}
 
-				<Button variant="primary" type="submit">
-					Login
-				</Button>
-			</Form>
+						<Button variant="primary" type="submit">
+							Login
+						</Button>
+					</Form>
+				</Container>
+			</div>
 		</>
 	);
 }

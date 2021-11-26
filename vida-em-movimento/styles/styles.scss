@@ -5,8 +5,10 @@
 @import "./partials/footer.module.scss";
 @import "./partials/typography.module.scss";
 @import "./partials/button.module.scss";
+@import "./partials/form.module.scss";
 @import "./partials/card.module.scss";
 @import "./partials/hero.module.scss";
+@import "./partials/accordion.module.scss";
 
 //pages
 @import "./partials/services.module.scss";
@@ -15,3 +17,4 @@
 @import "./partials/contacts.module.scss";
 @import "./partials/cart.module.scss";
 @import "./partials/dashboard.module.scss";
+@import "./partials/admin.module.scss";

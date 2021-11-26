@@ -7,6 +7,7 @@
 		}
 		.btn {
 			background: none !important;
+			padding-top: 0.3rem;
 			color: rgba($dark-grey, 0.5);
 			margin-bottom: auto;
 			font-weight: 400;
@@ -34,26 +35,6 @@
 					color: $primary;
 					width: 2rem;
 					height: 2rem;
-				}
-			}
-		}
-
-		.mobile {
-			.accordion-item {
-				h2 {
-					margin-top: 0.5rem;
-					.accordion-button {
-						font-weight: 700;
-						color: $primary;
-						&::after {
-							background-image: none;
-						}
-					}
-				}
-				&:first-of-type {
-					h2 {
-						margin-top: 0;
-					}
 				}
 			}
 		}

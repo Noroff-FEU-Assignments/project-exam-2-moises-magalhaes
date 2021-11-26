@@ -1,11 +1,15 @@
 .btn:focus,
-.btn:active {
+.btn:active,
+.accordion-button {
 	outline: none !important;
 	box-shadow: none !important;
 }
 .btn {
-	font-weight: 700;
+	font-weight: 500;
 	border-radius: 0.5rem;
+	text-transform: uppercase;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
 	&.btn-primary {
 		background-color: $primary !important;
 		border: none;

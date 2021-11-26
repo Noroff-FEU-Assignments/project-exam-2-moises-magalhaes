@@ -19,7 +19,7 @@ const Dashboard = () => {
 
 		useEffect(() => {
 			setValue(localStorage.getItem(adminValue));
-		}, []);
+		}, [adminValue]);
 
 		return value;
 	};
@@ -40,9 +40,6 @@ const Dashboard = () => {
 				</Container>
 			</div>
 			<DashboardNav />
-			<Container>
-				<EditHome />
-			</Container>
 		</>
 	);
 };
