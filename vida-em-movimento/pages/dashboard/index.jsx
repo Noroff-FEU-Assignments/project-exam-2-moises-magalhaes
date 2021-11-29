@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import Logout from "../../components/elements/AdminLogout";
 import { Container } from "react-bootstrap";
 import DashboardNav from "../../components/elements/DashboardNav";
-import { AppProps } from "next/dist/shared/lib/router/router";
-import EditHome from "./edit-home";
 import Heading from "../../components/elements/Heading";
 
 // const Dashboard = ({ Component, DashboardProps }: AppProps) => {
@@ -34,7 +32,7 @@ const Dashboard = () => {
 	return (
 		<>
 			<div className="welcome-dashboard">
-				<Container>
+				<Container className="welcome">
 					<Heading title="Welcome Admin" />
 					<Logout />
 				</Container>
