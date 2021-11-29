@@ -22,6 +22,19 @@
 			background-color: $white;
 			width: 60%;
 			color: $primary;
+			text-align: left;
+			padding-left: 2%;
+		}
+	}
+}
+@media (min-width: 768px) {
+	.home {
+		.hero-banner {
+			h1,
+			p {
+				width: 40%;
+				padding-right: 1%;
+			}
 		}
 	}
 }
