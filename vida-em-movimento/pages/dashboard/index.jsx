@@ -31,13 +31,15 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<div className="welcome-dashboard">
-				<Container className="welcome">
-					<Heading title="Welcome Admin" />
-					<Logout />
-				</Container>
+			<div className="dash-page">
+				<div className="welcome-dashboard">
+					<Container className="welcome">
+						<Heading title="Welcome Admin" />
+						<Logout />
+					</Container>
+				</div>
+				<DashboardNav />
 			</div>
-			<DashboardNav />
 		</>
 	);
 };

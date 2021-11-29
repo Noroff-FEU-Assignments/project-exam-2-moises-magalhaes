@@ -97,10 +97,26 @@
 						margin-top: auto;
 						margin-bottom: auto;
 						margin-right: 0;
+						grid-row-start: 1;
 						h4 {
 							font-size: 1.1rem;
 							text-align: left;
 						}
+					}
+					.title {
+						grid-column-start: 1;
+					}
+					.line-2 {
+						grid-column-start: 3;
+					}
+					.quantity {
+						grid-column-start: 4;
+					}
+					.buttons {
+						grid-column-start: 5;
+					}
+					.remove-btn {
+						grid-column-start: 6;
 					}
 				}
 			}
@@ -121,6 +137,11 @@
 	.cart {
 		.container {
 			max-width: 720px;
+		}
+		.info {
+			.title {
+				margin-left: 1rem;
+			}
 		}
 	}
 }
