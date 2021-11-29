@@ -42,14 +42,15 @@ const AddNewProducts = (props: any) => {
 	const onTitleChange = (e: any) => setTitle(e.target.value);
 	const onDescriptionChange = (e: any) => setDescription(e.target.value);
 
-	const submitForm = (productData: any, e: any): any => {
+	const submitForm = (productData: any, e: any) => {
 		e.preventDefault();
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
 
-		const data = { image, title, description };
+		const data = { title, description };
+
 		const requestOptions = {
 			method: "POST",
 			headers: {
@@ -58,14 +59,38 @@ const AddNewProducts = (props: any) => {
 			},
 			body: JSON.stringify(data),
 		};
+
 		fetch(baseUrl + "my-products/", requestOptions)
 			.then((response) => response.json())
 			.then((res: void) => console.log(res))
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
+
+		//add image
+		const imageData = { image };
+		const formData = new FormData();
+		formData.append("File", image);
+
+		const imageRequestOptions = {
+			method: "POST",
+			headers: {
+				Authorization: "Bearer " + saved.token,
+				"Content-Type": "application/json",
+			},
+			// body: JSON.stringify(imageData),
+			body: JSON.stringify(FormData),
+		};
+
+		fetch(baseUrl + "my-products/upload", imageRequestOptions)
+			.then((response) => response.json())
+			.then((res: void) => console.log(res))
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
+		console.log(imageData);
 		alert("successful");
-		window.location.reload();
+		// window.location.reload();
 	};
 
 	return (
@@ -82,9 +107,9 @@ const AddNewProducts = (props: any) => {
 									//  { required: true }
 								)}
 								type="file"
-								value={image}
+								defaultValue={image}
 								placeholder="Enter image"
-								// onChange={onImageChange}
+								onChange={onImageChange}
 							/>
 						</Form.Group>
 						<Form.Group className="mb-3">
