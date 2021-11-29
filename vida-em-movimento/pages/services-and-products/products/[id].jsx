@@ -3,7 +3,7 @@ import FetchProductId from "../../../components/hooks/fetchProductsId";
 
 const ProductIdPage = () => {
 	return (
-		<div>
+		<div className="product-page">
 			<FetchProductId />
 		</div>
 	);

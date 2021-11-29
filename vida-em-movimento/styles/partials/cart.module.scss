@@ -116,3 +116,11 @@
 		}
 	}
 }
+
+@media screen and (min-width: 992px) {
+	.cart {
+		.container {
+			max-width: 720px;
+		}
+	}
+}

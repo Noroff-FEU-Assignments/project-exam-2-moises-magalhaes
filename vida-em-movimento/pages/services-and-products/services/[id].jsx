@@ -3,7 +3,7 @@ import FetchServiceId from "../../../components/hooks/fetchServiceId";
 
 const ServiceIdPage = () => {
 	return (
-		<div>
+		<div className="service-page">
 			<FetchServiceId />
 		</div>
 	);

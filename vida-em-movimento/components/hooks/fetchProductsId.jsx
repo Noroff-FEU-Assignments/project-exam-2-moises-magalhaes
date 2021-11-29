@@ -4,6 +4,7 @@ import { object } from "yup";
 import { baseUrl } from "../constants/api";
 import { useRouter } from "next/router";
 import { Image } from "next/image";
+import { Card, Container } from "react-bootstrap";
 
 // export const GetStaticPaths = async () => {
 // 	const res = await fetch(baseUrl + "services");
@@ -50,16 +51,19 @@ const FetchProductId = () => {
 	}, [id]);
 
 	return (
-		<>
+		<Container>
 			<div className="product">
-				<h2>{id}</h2>
-				<p>{data.title}</p>
-				<p>{data.description}</p>
-				<p>{data.price}</p>
+				<Card>
+					<Card.Body>
+						<h2>{data.title}</h2>
+						<p>{data.description}</p>
+						<p>{data.price}</p>
 
-				{/* <Image src={data.image.url} alt="training" /> */}
+						{/* <Image src={data.image.url} alt="training" /> */}
+					</Card.Body>
+				</Card>
 			</div>
-		</>
+		</Container>
 	);
 };
 

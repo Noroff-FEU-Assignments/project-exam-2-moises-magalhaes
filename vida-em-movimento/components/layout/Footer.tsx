@@ -26,7 +26,6 @@ const Footer = () => {
 					<div className="footer-center col-md-4 col-sm-6">
 						<div className="address">
 							<span>
-								<FaMapMarkerAlt />
 								<h2>Address</h2>
 							</span>
 
@@ -35,7 +34,11 @@ const Footer = () => {
 								Brasil
 							</p>
 						</div>
-
+					</div>
+					<div className="footer-right col-md-4 col-sm-6">
+						<h2>
+							<span> Vida em Movimento</span>
+						</h2>
 						<div className="icons">
 							<a href="#">
 								<FaFacebookF />
@@ -52,14 +55,10 @@ const Footer = () => {
 							<a href="#"> info@vidaemmovimentopnz.com.br</a>
 						</div>
 					</div>
-					<div className="footer-right col-md-4 col-sm-6">
-						<h2>
-							<span> Vida em Movimento</span>
-						</h2>
-						<p className="name">
-							All Rights reserved by &copy; Moises Magalhaes design 2021
-						</p>
-					</div>
+					<p className="designer">
+						All Rights reserved by &copy; Moises Magalhaes design{" "}
+						<span>{new Date().getFullYear()}</span>
+					</p>
 				</Container>
 			</footer>
 		</>
