@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container } from "react-bootstrap";
 import Image from "next/image";
+import Link from "next/link";
+
 import watch from "../images/david-svihovec-gtQddXwuS18-unsplash.jpg";
 import { BiPlusCircle, BiMinusCircle } from "react-icons/bi";
 import { CgTrashEmpty } from "react-icons/cg";
 
-const FetchCart = () => {
+const FetchCart = ({ props }) => {
 	const [cart, setCart] = useState([]);
 
 	const initialState = {
@@ -16,7 +18,6 @@ const FetchCart = () => {
 	useEffect(() => {
 		const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 		setCart(cartLocalStorage);
-		console.log(cartLocalStorage);
 	}, []);
 
 	//taking away duplicated items
@@ -46,6 +47,7 @@ const FetchCart = () => {
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
+
 	//subtracting item
 	const onSubtract = (product) => {
 		const exist = cart.find((x) => x.id === product.id);
@@ -61,6 +63,7 @@ const FetchCart = () => {
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
+
 	//remove item
 	const onRemove = (product) => {
 		const exist = cart.find((x) => x.id === product.id);
@@ -75,8 +78,18 @@ const FetchCart = () => {
 	const shippingPrice = itemsPrice > 200 ? 0 : 25;
 	const totalPrice = itemsPrice + shippingPrice;
 
+	// console.log(totalPrice);
+	//add price to localStorage
+	const [finalPrice, setFinalPrice] = useState(totalPrice);
+
+	const submitPrice = (e) => {
+		e.preventDefault();
+		localStorage.setItem("finalPrice", finalPrice);
+	};
+
 	return (
 		<>
+			{/* <Elements stripe={stripePromise}> */}
 			<Container>
 				<div>{cart.length === 0 && <h1>The cart is empty</h1>}</div>
 
@@ -132,12 +145,17 @@ const FetchCart = () => {
 								<p>R$ {totalPrice.toFixed(2)}</p>
 							</div>
 							<Card>
-								<Button>Go to payment</Button>
+								{/* <Link onSubmit={submitPrice} href={"/checkout"} passHref> */}
+								<Button onSubmit={(e) => setFinalPrice(submitPrice)}>
+									Go to payment
+								</Button>
+								{/* </Link> */}
 							</Card>
 						</>
 					)}
 				</div>
 			</Container>
+			{/* </Elements> */}
 		</>
 	);
 };
