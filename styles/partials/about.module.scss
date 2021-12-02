@@ -1,0 +1,23 @@
+.About {
+	.container {
+		.btn {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.About {
+		.box {
+			height: 300px !important;
+			overflow: hidden !important;
+		}
+		.container {
+			.btn {
+				max-width: 12rem;
+			}
+		}
+	}
+}
