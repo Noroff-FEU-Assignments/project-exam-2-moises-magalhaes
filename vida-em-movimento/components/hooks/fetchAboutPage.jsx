@@ -1,8 +1,7 @@
-import axios from "axios";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../constants/api";
 import Image from "next/image";
+import axios from "axios";
 import Link from "next/link";
 import { Button, Container } from "react-bootstrap";
 
@@ -39,8 +38,8 @@ const FetchAboutPage = () => {
 							<p>{object.description}</p>
 						</div>
 					))}
-					<Link href="/services-and-products/services/" passHref>
-						<Button>Find more about</Button>
+					<Link href="/services-and-products" passHref>
+						<Button>Check our products and services</Button>
 					</Link>
 				</Container>
 			</div>
