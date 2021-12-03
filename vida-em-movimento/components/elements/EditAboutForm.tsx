@@ -35,13 +35,12 @@ function EditAboutForm(props: any) {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
 
 	//Fetching data from API
 	const router = useRouter();
-	const [data, setData] = useState<DataType>([]);
+	const [data, setData] = useState<DataType[]>([]);
 	const { id } = router.query;
 	const URL = baseUrl + "abouts/1";
 
@@ -49,7 +48,6 @@ function EditAboutForm(props: any) {
 		axios
 			.get(URL)
 			.then((res) => {
-				console.log(res.data);
 				setData(res.data);
 			})
 			.catch((err) => {
@@ -73,11 +71,9 @@ function EditAboutForm(props: any) {
 	MyLocalStorage("admin");
 
 	const [image, setImage] = useState("");
-	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 
 	const onImageChange = (e: any) => setImage(e.target.files);
-	const onTitleChange = (e: any) => setTitle(e.target.value);
 	const onDescriptionChange = (e: any) => setDescription(e.target.value);
 
 	const submitForm = (apiData: any, e: any) => {
@@ -87,7 +83,7 @@ function EditAboutForm(props: any) {
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
 
-		const data = { image, title, description };
+		const data = { image, description };
 		const requestOptions = {
 			method: "PUT",
 			headers: {
@@ -111,26 +107,12 @@ function EditAboutForm(props: any) {
 				<Form.Group controlId="formFile" className="mb-3">
 					<Form.Label>Edit image</Form.Label>
 					<Form.Control
-						{...register(
-							"image"
-							//  { required: true }
-						)}
+						{...register("image")}
 						type="file"
-						value={image}
-						defaultValue={data.image}
+						defaultValue={image}
+						onChange={onImageChange}
 					/>
 				</Form.Group>
-
-				{/* <Form.Group className="mb-3">
-					<Form.Label>Edit Title</Form.Label>
-
-					<Form.Control
-						{...register("title", { required: true })}
-						type="text"
-						defaultValue={data.title}
-						onChange={onTitleChange}
-					/>
-				</Form.Group> */}
 
 				<Form.Group className="mb-3">
 					<Form.Label>Edit text</Form.Label>
@@ -139,7 +121,7 @@ function EditAboutForm(props: any) {
 						as="textarea"
 						rows={15}
 						onChange={onDescriptionChange}
-						defaultValue={data.description}
+						defaultValue={description}
 					/>
 				</Form.Group>
 

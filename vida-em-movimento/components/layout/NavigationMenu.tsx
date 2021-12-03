@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
-import Searchbar from "../hooks/searchbar";
 import CartButton from "../hooks/cartButton";
 import Image from "next/image";
 import logo from "../images/logo-white-types.svg";

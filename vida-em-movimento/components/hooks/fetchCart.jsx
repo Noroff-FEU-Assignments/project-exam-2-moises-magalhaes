@@ -7,7 +7,7 @@ import watch from "../images/david-svihovec-gtQddXwuS18-unsplash.jpg";
 import { BiPlusCircle, BiMinusCircle } from "react-icons/bi";
 import { CgTrashEmpty } from "react-icons/cg";
 
-const FetchCart = ({ props }) => {
+const FetchCart = () => {
 	const [cart, setCart] = useState([]);
 
 	const initialState = {
@@ -78,7 +78,6 @@ const FetchCart = ({ props }) => {
 	const shippingPrice = itemsPrice > 200 ? 0 : 25;
 	const totalPrice = itemsPrice + shippingPrice;
 
-	// console.log(totalPrice);
 	//add price to localStorage
 	const [finalPrice, setFinalPrice] = useState(totalPrice);
 

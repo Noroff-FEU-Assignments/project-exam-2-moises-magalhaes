@@ -11,7 +11,6 @@ const FetchServices = (props) => {
 		axios
 			.get(baseUrl + "services/")
 			.then((res) => {
-				// console.log(res);
 				setService(res.data);
 			})
 			.catch((err) => {

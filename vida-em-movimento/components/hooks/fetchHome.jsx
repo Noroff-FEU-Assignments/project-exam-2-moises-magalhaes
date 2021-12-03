@@ -6,31 +6,15 @@ import axios from "axios";
 const FetchHome = () => {
 	const [post, setPost] = useState([]);
 
-	// const getHero = async () => {
-	// 	const res = await fetch(baseUrl + "heroes");
-	// 	const info = await res.json();
-	// 	console.log(info);
-	// };
-
-	// const getHero = async () => {
-	// 	await fetch(baseUrl + "heroes")
-	// 		.then((response) => response.json())
-	// 		.then((json) => setData(json));
-	// };
-
-	// console.log(data);
-
 	useEffect(() => {
 		axios
 			.get(baseUrl + "heroes/")
 			.then((res) => {
-				// console.log(res);
 				setPost(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		// 	getHero();
 	}, []);
 
 	return (

@@ -13,16 +13,11 @@ type FormValues = {
 };
 
 const AddNewProducts = (props: any) => {
-	// const router = useRouter();
-
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
-
-	// console.log(watch());
 
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");
@@ -88,7 +83,6 @@ const AddNewProducts = (props: any) => {
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
-		console.log(imageData);
 		alert("successful");
 		// window.location.reload();
 	};
@@ -102,10 +96,7 @@ const AddNewProducts = (props: any) => {
 						<Form.Group controlId="formFile" className="mb-3">
 							<Form.Label>Add image</Form.Label>
 							<Form.Control
-								{...register(
-									"image"
-									//  { required: true }
-								)}
+								{...register("image")}
 								type="file"
 								defaultValue={image}
 								placeholder="Enter image"

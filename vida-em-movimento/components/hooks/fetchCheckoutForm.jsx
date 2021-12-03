@@ -34,8 +34,6 @@ const FetchCheckoutForm = () => {
 					<Form.Control type="text" placeholder="Enter PostalCode" />
 				</Form.Group>
 			</Row>
-
-			{/* <Button>Submit Payment</Button> */}
 		</>
 	);
 };

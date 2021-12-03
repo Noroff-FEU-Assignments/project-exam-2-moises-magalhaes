@@ -13,7 +13,6 @@ const FetchAboutPage = () => {
 		axios
 			.get(baseUrl + "abouts/")
 			.then((res) => {
-				console.log(res.data);
 				setAbout(res.data);
 			})
 			.catch((err) => {

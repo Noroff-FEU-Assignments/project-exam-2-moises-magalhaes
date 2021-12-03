@@ -58,13 +58,13 @@ function EditContactsForm(props: any) {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
 
 	//Fetching data from API
 	const router = useRouter();
-	const [data, setData] = useState<DataType>([]);
+	const [data, setData] = useState<DataType[]>([]);
+
 	const { id } = router.query;
 	const URL = baseUrl + "contacts/1";
 
@@ -72,7 +72,6 @@ function EditContactsForm(props: any) {
 		axios
 			.get(URL)
 			.then((res) => {
-				console.log(res.data);
 				setData(res.data);
 			})
 			.catch((err) => {
@@ -143,7 +142,7 @@ function EditContactsForm(props: any) {
 						{...register("phoneNumber", { required: true })}
 						type="text"
 						onChange={onPhoneNumberChange}
-						defaultValue={data.phoneNumber}
+						defaultValue={phoneNumber}
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3">
@@ -152,7 +151,7 @@ function EditContactsForm(props: any) {
 						{...register("instagram", { required: true })}
 						type="text"
 						onChange={onInstagramChange}
-						defaultValue={data.instagram}
+						defaultValue={instagram}
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3">
@@ -161,7 +160,7 @@ function EditContactsForm(props: any) {
 						{...register("facebook", { required: true })}
 						type="text"
 						onChange={onFacebookChange}
-						defaultValue={data.facebook}
+						defaultValue={facebook}
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3">
@@ -169,8 +168,8 @@ function EditContactsForm(props: any) {
 					<Form.Control
 						{...register("whatsapp", { required: true })}
 						type="text"
-						onChange={onPhoneNumberChange}
-						defaultValue={data.instagram}
+						onChange={onWhatsappChange}
+						defaultValue={instagram}
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3">
@@ -179,7 +178,7 @@ function EditContactsForm(props: any) {
 						{...register("address", { required: true })}
 						type="text"
 						onChange={onAddressChange}
-						defaultValue={data.address}
+						defaultValue={address}
 					/>
 				</Form.Group>
 				<Button variant="primary" type="submit">

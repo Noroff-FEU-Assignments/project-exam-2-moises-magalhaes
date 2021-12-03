@@ -19,11 +19,8 @@ const AddNewTestimonies = (props: any) => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
-
-	// console.log(watch());
 
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");

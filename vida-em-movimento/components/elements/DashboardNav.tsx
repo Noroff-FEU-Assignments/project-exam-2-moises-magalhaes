@@ -1,9 +1,7 @@
 import { BiGridAlt } from "react-icons/bi";
 import AccordionDashboard from "../hooks/AccordionDashboard";
 import DesktopDashboard from "../hooks/desktopDashboard";
-import Heading from "../elements/Heading";
 import SubHeading from "../elements/SubHeading";
-import Logout from "../../components/elements/AdminLogout";
 import { Container } from "react-bootstrap";
 
 const DashboardNav = () => {

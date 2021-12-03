@@ -10,7 +10,6 @@ const FetchTestimonies = () => {
 		axios
 			.get(baseUrl + "testimonies/")
 			.then((res) => {
-				// console.log(res);
 				setTestimonies(res.data);
 			})
 			.catch((err) => {

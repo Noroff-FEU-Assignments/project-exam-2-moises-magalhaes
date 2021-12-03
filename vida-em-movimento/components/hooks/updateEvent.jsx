@@ -34,7 +34,6 @@ const UpdateEvent = () => {
 		axios
 			.get(baseUrl + "Events/")
 			.then((res) => {
-				// console.log(res);
 				setEvent(res.data);
 			})
 			.catch((err) => {
@@ -53,12 +52,7 @@ const UpdateEvent = () => {
 							<p>{object.date}</p>
 							<p>{object.time}</p>
 							<p>{object.description}</p>
-							{/* <Link
-							href={"/Events-and-products/Events/" + object.id}
-							passHref
-						>
-							<Button>edit</Button>
-						</Link> */}
+
 							<Link href={"/dashboard/edit-events/" + object.id} passHref>
 								<Button>Update Event</Button>
 							</Link>

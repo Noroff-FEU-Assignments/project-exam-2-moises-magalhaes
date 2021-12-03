@@ -12,7 +12,6 @@ const FetchProducts = (props) => {
 		axios
 			.get(baseUrl + "my-products/")
 			.then((res) => {
-				// console.log(res);
 				setProduct(res.data);
 			})
 			.catch((err) => {
@@ -37,8 +36,6 @@ const FetchProducts = (props) => {
 			setCart([...cart, { ...product, qty: 1 }]);
 		}
 		localStorage.setItem("cart", JSON.stringify(cart));
-
-		console.log({ ...cart, ...product.qty });
 	};
 
 	return (

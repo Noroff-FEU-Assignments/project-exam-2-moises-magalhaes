@@ -94,14 +94,10 @@ const AddNewEvents = (props: any) => {
 						<Form.Group controlId="formFile" className="mb-3">
 							<Form.Label>Add image</Form.Label>
 							<Form.Control
-								{...register(
-									"image"
-									//  { required: true }
-								)}
+								{...register("image")}
 								type="file"
 								value={image}
 								placeholder="Enter image"
-								// onChange={onImageChange}
 							/>
 						</Form.Group>
 						<Form.Group className="mb-3">
@@ -123,16 +119,6 @@ const AddNewEvents = (props: any) => {
 								onChange={onDateChange}
 							/>
 						</Form.Group>
-
-						{/* <Form.Group className="mb-3">
-							<Form.Label>Add text</Form.Label>
-							<Form.Control
-								{...register("time", { required: true })}
-								type="time"
-								placeholder="Write your event date"
-								onChange={onTimeChange}
-							/>
-						</Form.Group> */}
 
 						<Form.Group className="mb-3">
 							<Form.Label>Add text</Form.Label>

@@ -9,7 +9,6 @@ const UpdateAbout = () => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
 
@@ -34,7 +33,6 @@ const UpdateAbout = () => {
 		axios
 			.get(baseUrl + "about/")
 			.then((res) => {
-				// console.log(res);
 				setService(res.data);
 			})
 			.catch((err) => {
@@ -52,12 +50,6 @@ const UpdateAbout = () => {
 							<h3>{object.id}</h3>
 							<p>{object.description}</p>
 
-							{/* <Link
-							href={"/about/" + object.id}
-							passHref
-						>
-							<Button>edit</Button>
-						</Link> */}
 							<Link href={"/dashboard/edit-about/" + object.id} passHref>
 								<Button>Update service</Button>
 							</Link>

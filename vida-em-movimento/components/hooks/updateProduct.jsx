@@ -34,17 +34,12 @@ const UpdateProduct = () => {
 		axios
 			.get(baseUrl + "my-products/")
 			.then((res) => {
-				// console.log(res);
 				setProduct(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
-
-	// const submitEdit = (e) => {
-	// 	e.preventDefault();
-	// };
 
 	return (
 		<>
@@ -56,12 +51,6 @@ const UpdateProduct = () => {
 							<h3>{object.id}</h3>
 							<p>{object.description}</p>
 
-							{/* <Link
-							href={"/services-and-products/products/" + object.id}
-							passHref
-						>
-							<Button>edit</Button>
-						</Link> */}
 							<Link href={"/dashboard/edit-products/" + object.id} passHref>
 								<Button>Update product</Button>
 							</Link>

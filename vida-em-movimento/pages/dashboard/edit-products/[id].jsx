@@ -21,13 +21,12 @@ const EditIdPage = () => {
 	const router = useRouter();
 	const [data, setData] = useState([]);
 	const { id } = router.query;
-	const URL = baseUrl + "products/" + id;
+	const URL = baseUrl + "my-products/" + id;
 
 	useEffect(() => {
 		axios
 			.get(URL)
 			.then((res) => {
-				console.log(res.data);
 				setData(res.data);
 			})
 			.catch((err) => {
@@ -52,15 +51,16 @@ const EditIdPage = () => {
 
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
+	const [price, setPrice] = useState("");
 	const [description, setDescription] = useState("");
 
 	const onImageChange = (e) => setImage(e.target.files);
 	const onTitleChange = (e) => setTitle(e.target.value);
+	const onPriceChange = (e) => setPrice(e.target.value);
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
 	const submitForm = (apiData, e) => {
 		e.preventDefault();
-		// console.log(apiData);
 
 		//get authorization
 		const initialValue = localStorage.getItem("admin") || "{}";
@@ -75,7 +75,7 @@ const EditIdPage = () => {
 			},
 			body: JSON.stringify(data),
 		};
-		fetch(baseUrl + "products/" + id, requestOptions)
+		fetch(baseUrl + "my-products/" + id, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
@@ -87,7 +87,6 @@ const EditIdPage = () => {
 	//delete product
 	const deleteForm = (id, e) => {
 		e.preventDefault();
-		console.log(id);
 
 		const initialValue = localStorage.getItem("admin") || "{}";
 		const saved = JSON.parse(initialValue);
@@ -101,7 +100,7 @@ const EditIdPage = () => {
 			body: JSON.stringify(data),
 		};
 
-		fetch(baseUrl + "products/" + id, requestOptions)
+		fetch(URL, requestOptions)
 			.then((response) => response.json())
 			.then((res) => console.log(res))
 			.catch((error) => {
@@ -117,10 +116,7 @@ const EditIdPage = () => {
 				<Form.Group controlId="formFile" className="mb-3">
 					<Form.Label>Edit image</Form.Label>
 					<Form.Control
-						{...register(
-							"image"
-							//  { required: true }
-						)}
+						{...register("image")}
 						type="file"
 						defaultValue={data.image}
 						value={image}
@@ -139,13 +135,23 @@ const EditIdPage = () => {
 				</Form.Group>
 
 				<Form.Group className="mb-3">
-					<Form.Label>Edit text</Form.Label>
+					<Form.Label>Edit description</Form.Label>
 					<Form.Control
 						{...register("description", { required: true })}
 						as="textarea"
 						rows={3}
 						defaultValue={data.description}
 						onChange={onDescriptionChange}
+					/>
+				</Form.Group>
+				<Form.Group className="mb-3">
+					<Form.Label>Edit price</Form.Label>
+
+					<Form.Control
+						{...register("price", { required: true })}
+						type="number"
+						defaultValue={data.price}
+						onChange={onPriceChange}
 					/>
 				</Form.Group>
 

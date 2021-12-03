@@ -34,7 +34,6 @@ const UpdateService = () => {
 		axios
 			.get(baseUrl + "testimonies/")
 			.then((res) => {
-				// console.log(res);
 				setService(res.data);
 			})
 			.catch((err) => {
@@ -53,12 +52,6 @@ const UpdateService = () => {
 							</h3>
 							<p>{object.description}</p>
 
-							{/* <Link
-							href={"/testimonies-and-products/testimonies/" + object.id}
-							passHref
-						>
-							<Button>edit</Button>
-						</Link> */}
 							<Link href={"/dashboard/edit-testimonies/" + object.id} passHref>
 								<Button>Update service</Button>
 							</Link>

@@ -13,16 +13,12 @@ type FormValues = {
 };
 
 const AddNewServices = (props: any) => {
-	// const router = useRouter();
-
 	const {
 		register,
 		handleSubmit,
 		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
-
-	// console.log(watch());
 
 	const MyLocalStorage = (adminValue: string) => {
 		const [value, setValue] = useState("");
@@ -77,14 +73,10 @@ const AddNewServices = (props: any) => {
 						<Form.Group controlId="formFile" className="mb-3">
 							<Form.Label>Add image</Form.Label>
 							<Form.Control
-								{...register(
-									"image"
-									//  { required: true }
-								)}
+								{...register("image")}
 								type="file"
 								value={image}
 								placeholder="Enter image"
-								// onChange={onImageChange}
 							/>
 						</Form.Group>
 						<Form.Group className="mb-3">

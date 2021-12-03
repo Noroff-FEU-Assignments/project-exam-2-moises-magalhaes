@@ -36,13 +36,12 @@ function EditHomeForm(props: any) {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<FormValues>();
 
 	//Fetching data from API
 	const router = useRouter();
-	const [data, setData] = useState<DataType>([]);
+	const [data, setData] = useState<DataType[]>([]);
 	const { id } = router.query;
 	const URL = baseUrl + "Heroes/1";
 
@@ -50,7 +49,6 @@ function EditHomeForm(props: any) {
 		axios
 			.get(URL)
 			.then((res) => {
-				console.log(res.data);
 				setData(res.data);
 			})
 			.catch((err) => {
@@ -112,13 +110,9 @@ function EditHomeForm(props: any) {
 				<Form.Group controlId="formFile" className="mb-3">
 					<Form.Label>Edit image</Form.Label>
 					<Form.Control
-						{...register(
-							"image"
-							//  { required: true }
-						)}
+						{...register("image")}
 						type="file"
-						value={image}
-						defaultValue={data.image}
+						defaultValue={image}
 					/>
 				</Form.Group>
 
@@ -128,7 +122,7 @@ function EditHomeForm(props: any) {
 					<Form.Control
 						{...register("title", { required: true })}
 						type="text"
-						defaultValue={data.title}
+						defaultValue={title}
 						onChange={onTitleChange}
 					/>
 				</Form.Group>
@@ -140,7 +134,7 @@ function EditHomeForm(props: any) {
 						as="textarea"
 						rows={15}
 						onChange={onDescriptionChange}
-						defaultValue={data.description}
+						defaultValue={description}
 					/>
 				</Form.Group>
 

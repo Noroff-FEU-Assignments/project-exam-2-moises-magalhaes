@@ -68,7 +68,6 @@ function AdminForm(props: any) {
 				});
 			}
 		});
-		// console.log(json);
 		Router.push("/dashboard");
 	};
 

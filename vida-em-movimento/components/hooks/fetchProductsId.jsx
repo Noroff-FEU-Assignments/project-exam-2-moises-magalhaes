@@ -6,33 +6,6 @@ import { useRouter } from "next/router";
 import { Image } from "next/image";
 import { Card, Container } from "react-bootstrap";
 
-// export const GetStaticPaths = async () => {
-// 	const res = await fetch(baseUrl + "services");
-// 	const data = await res.json();
-
-// 	const paths = data.map((object) => {
-// 		return {
-// 			params: { id: object.id.toString() },
-// 		};
-// 	});
-// 	return {
-// 		paths,
-// 		fallback: false,
-// 	};
-// };
-
-// export const getStaticProps = async (context) => {
-// 	const id = context.params.id;
-// 	const res = await fetch(baseUrl + "services" + id);
-// 	const data = await res.json();
-
-// 	return {
-// 		props: {
-// 			object: data,
-// 		},
-// 	};
-// };
-
 const FetchProductId = () => {
 	const [data, setData] = useState([]);
 	const router = useRouter();
@@ -42,7 +15,6 @@ const FetchProductId = () => {
 		axios
 			.get(baseUrl + "my-products/" + id)
 			.then((res) => {
-				console.log(res.data);
 				setData(res.data);
 			})
 			.catch((err) => {
