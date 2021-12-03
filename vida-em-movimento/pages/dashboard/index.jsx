@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Router from "next/router";
 import axios from "axios";
-import nookies from "nookies";
 import { useEffect, useState } from "react";
 import Logout from "../../components/elements/AdminLogout";
 import { Container } from "react-bootstrap";

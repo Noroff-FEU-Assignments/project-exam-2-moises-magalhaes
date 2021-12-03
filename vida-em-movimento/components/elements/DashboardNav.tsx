@@ -1,5 +1,5 @@
 import { BiGridAlt } from "react-icons/bi";
-import AccordionDashboard from "../hooks/AccordionDashboard";
+import AccordionDashboard from "../hooks/accordionDashboard";
 import DesktopDashboard from "../hooks/desktopDashboard";
 import SubHeading from "../elements/SubHeading";
 import { Container } from "react-bootstrap";
