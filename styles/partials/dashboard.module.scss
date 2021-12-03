@@ -1,0 +1,130 @@
+.welcome-dashboard {
+	.container {
+		display: flex;
+		h1 {
+			flex-grow: 2;
+			margin-left: 4rem;
+		}
+		.btn {
+			background: none !important;
+			padding-top: 0.3rem;
+			color: rgba($dark-grey, 0.5);
+			margin-bottom: auto;
+			font-weight: 400;
+			margin-left: auto;
+		}
+	}
+}
+.dashMenu {
+	padding-left: 0;
+	padding-right: 0;
+	.admin-dashboard {
+		display: grid !important;
+
+		.border-end {
+			flex-basis: 100%;
+			border-right: transparent !important;
+			.sidebar-heading {
+				display: flex;
+				background-color: $yellow !important;
+				justify-content: center;
+				h2 {
+					margin-right: 2rem;
+				}
+				.icon {
+					margin-top: 1.5rem;
+					margin-bottom: auto;
+					margin-left: 1rem;
+					margin-right: 1rem;
+					svg {
+						color: $primary;
+						width: 2rem;
+						height: 2rem;
+					}
+				}
+			}
+
+			.desktop {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.admin-dashboard {
+		.mobile {
+			display: none;
+		}
+		.desktop {
+			display: block !important;
+		}
+	}
+
+	.dash-page {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+
+		.welcome-dashboard {
+			grid-column-start: 2;
+			grid-column-end: 6;
+			grid-row-start: 1;
+			padding-right: 85px;
+
+			.welcome {
+				grid-template-columns: 2fr 1fr;
+
+				.btn {
+					padding-right: 10%;
+				}
+			}
+		}
+		.dashMenu {
+			margin-left: 0;
+			margin-right: 0;
+			grid-column-start: 1;
+			grid-column-end: 2;
+			grid-row-start: 1;
+			grid-row-end: 4;
+			background-color: $white;
+			box-shadow: 0.2rem 0.2rem 5px rgba($dark-grey, 0.3);
+
+			.border-end {
+				.sidebar-heading {
+					margin-left: 0;
+				}
+				.list-group {
+					.list-group-item-light {
+						color: $primary;
+						font-weight: 700;
+						&:hover {
+							color: $white;
+							background-color: $primary;
+						}
+					}
+				}
+			}
+		}
+		.page-form {
+			grid-row-start: 2;
+			&.container {
+				padding-left: 2rem;
+				padding-right: 105px;
+				max-width: 720px;
+				.btn {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 1200px) {
+	.dash-page {
+		.welcome-dashboard {
+			padding-right: 65px;
+		}
+		// .container {
+		// 	max-width: 1140px;
+		// }
+	}
+}

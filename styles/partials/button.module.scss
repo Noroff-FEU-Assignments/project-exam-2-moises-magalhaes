@@ -1,0 +1,25 @@
+.btn:focus,
+.btn:active,
+.accordion-button {
+	outline: none !important;
+	box-shadow: none !important;
+}
+.btn {
+	font-weight: 500;
+	border-radius: 0.5rem;
+	text-transform: uppercase;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+	&.btn-primary {
+		background-color: $primary !important;
+		border: none;
+	}
+	&.btn-secondary {
+		background-color: $yellow !important;
+		color: $black !important;
+		margin-top: 10px;
+	}
+	:disabled {
+		background-color: $dark-grey;
+	}
+}

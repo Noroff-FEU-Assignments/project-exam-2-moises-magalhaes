@@ -1,0 +1,41 @@
+.accordion-item {
+	border: none;
+	box-shadow: 0.2rem 0.2rem 2px rgba($dark-grey, 0.1),
+		-0.3rem -0.3rem 7px rgba($dark-grey, 0.1);
+
+	h2 {
+		margin-top: 0.5rem;
+
+		.accordion-button {
+			font-weight: 700;
+			color: $white;
+			background-color: $primary;
+			&::after {
+				background-image: none;
+			}
+			&.collapsed {
+				background-color: $white;
+				color: $primary;
+			}
+		}
+	}
+	&:first-of-type {
+		h2 {
+			margin-top: 0;
+		}
+	}
+	.accordion-collapse {
+		.accordion-body {
+			background-color: $light-background;
+			.edit-hero,
+			form {
+				display: flex;
+				flex-direction: column;
+				.btn {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		}
+	}
+}
