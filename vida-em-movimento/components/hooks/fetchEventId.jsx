@@ -4,6 +4,8 @@ import { object } from "yup";
 import { baseUrl } from "../constants/api";
 import { useRouter } from "next/router";
 import { Image } from "next/image";
+import { Card, Container } from "react-bootstrap";
+import Heading from "../elements/Heading";
 
 const FetchEventId = () => {
 	const [data, setData] = useState([]);
@@ -24,12 +26,20 @@ const FetchEventId = () => {
 
 	return (
 		<>
-			<div className="events">
-				<h2>{id}</h2>
-				<p>{data.title}</p>
-				<p>{data.description}</p>
-				{/* <Image src={data.image.url} alt="training" /> */}
-			</div>
+			<Heading title="Event" />
+			<Container>
+				<div className="event">
+					<Card>
+						<Card.Body>
+							<h2>{data.title}</h2>
+							<p>{data.description}</p>
+							<p>{data.price}</p>
+
+							{/* <Image src={data.image.url} alt="training" /> */}
+						</Card.Body>
+					</Card>
+				</div>
+			</Container>
 		</>
 	);
 };

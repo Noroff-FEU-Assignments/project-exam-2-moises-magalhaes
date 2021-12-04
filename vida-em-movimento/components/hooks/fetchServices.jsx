@@ -5,7 +5,7 @@ import { Button, Card } from "react-bootstrap";
 import { baseUrl } from "../constants/api";
 import Link from "next/link";
 
-const FetchServices = (props) => {
+const FetchServices = () => {
 	const [service, setService] = useState([]);
 	useEffect(() => {
 		axios
@@ -30,7 +30,7 @@ const FetchServices = (props) => {
 								href={"/services-and-products/services/" + object.id}
 								passHref
 							>
-								<Button>Find more about</Button>
+								<Button>Read more</Button>
 							</Link>
 						</Card.Body>
 					</Card>

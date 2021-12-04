@@ -23,19 +23,23 @@ const FetchProductId = () => {
 	}, [id]);
 
 	return (
-		<Container>
-			<div className="product">
-				<Card>
-					<Card.Body>
-						<h2>{data.title}</h2>
-						<p>{data.description}</p>
-						<p>{data.price}</p>
+		<>
+			<Heading title="Product" />
 
-						{/* <Image src={data.image.url} alt="training" /> */}
-					</Card.Body>
-				</Card>
-			</div>
-		</Container>
+			<Container>
+				<div className="product">
+					<Card>
+						<Card.Body>
+							<h2>{data.title}</h2>
+							<p>{data.description}</p>
+							<p>{data.price}</p>
+
+							{/* <Image src={data.image.url} alt="training" /> */}
+						</Card.Body>
+					</Card>
+				</div>
+			</Container>
+		</>
 	);
 };
 

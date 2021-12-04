@@ -23,17 +23,21 @@ const FetchServiceId = () => {
 	}, [id]);
 
 	return (
-		<Container>
-			<div className="service">
-				<Card>
-					<Card.Body>
-						<h2>{data.title}</h2>
-						<p>{data.description}</p>
-						{/* <Image src={data.image.url} alt="training" /> */}
-					</Card.Body>
-				</Card>
-			</div>
-		</Container>
+		<>
+			<Heading title="Service" />
+
+			<Container>
+				<div className="service">
+					<Card>
+						<Card.Body>
+							<h2>{data.title}</h2>
+							<p>{data.description}</p>
+							{/* <Image src={data.image.url} alt="training" /> */}
+						</Card.Body>
+					</Card>
+				</div>
+			</Container>
+		</>
 	);
 };
 
