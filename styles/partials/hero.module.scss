@@ -1,0 +1,40 @@
+.home {
+	margin: 0 !important;
+	filter: contrast(120%) saturate(120%);
+	-webkit-filter: contrast(130%) saturate(160%);
+	background: linear-gradient(
+			0deg,
+			rgba(55 35 205 / 29%),
+			rgba(55 35 205 / 29%)
+		),
+		url(../../components/images/pexels-julia-larson-6455772.webp);
+	// background-position: right center, center center;
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+	height: 20rem;
+	.hero-banner {
+		h1 {
+			margin-top: 0;
+			font-weight: 700;
+		}
+		h1,
+		p {
+			background-color: $white;
+			width: 60%;
+			color: $primary;
+			text-align: left;
+			padding-left: 2%;
+		}
+	}
+}
+@media (min-width: 768px) {
+	.home {
+		.hero-banner {
+			h1,
+			p {
+				width: 40%;
+				padding-right: 1%;
+			}
+		}
+	}
+}

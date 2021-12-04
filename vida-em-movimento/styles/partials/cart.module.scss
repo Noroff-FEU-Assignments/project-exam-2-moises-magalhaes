@@ -1,0 +1,147 @@
+.cart {
+	p {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	.product {
+		display: grid;
+		span {
+			img {
+				width: 100px !important;
+			}
+		}
+		.card-body {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: 5px;
+			.box {
+				width: 120px;
+				overflow: hidden;
+			}
+			.info {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 5px;
+				.title {
+					grid-column-start: 1;
+					grid-column-end: 3;
+				}
+				.quantity {
+					grid-column-gap: 5px;
+					margin-top: auto;
+					margin-bottom: auto;
+				}
+				.buttons {
+					display: flex;
+					.btn {
+						background-color: transparent !important;
+						svg {
+							color: $primary;
+							width: 2rem;
+							height: 2rem;
+						}
+					}
+				}
+				.line-2 {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					margin-right: 0.8rem;
+				}
+				.remove-btn {
+					margin-left: auto;
+					margin-right: 0.7rem;
+					svg {
+						width: 2rem;
+						height: 2rem;
+						color: $primary;
+					}
+				}
+			}
+		}
+	}
+	.items-price,
+	.shipping-price,
+	.total-price {
+		font-weight: 700;
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.cart .cards {
+		grid-template-columns: 1fr;
+		.card {
+			border-radius: 0;
+			background-color: transparent;
+			box-shadow: none;
+			.card-body {
+				grid-template-columns: 1fr 4fr;
+				border-bottom: solid 4px $secondary;
+				padding-left: 0;
+				padding-right: 0;
+				.box {
+					width: 100%;
+					overflow: hidden;
+				}
+				.info {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+					gap: 0.1rem;
+					.title,
+					.line-2,
+					.remove-btn,
+					.buttons {
+						margin-top: auto;
+						margin-bottom: auto;
+						margin-right: 0;
+						grid-row-start: 1;
+						h4 {
+							font-size: 1.1rem;
+							text-align: left;
+						}
+					}
+					.title {
+						grid-column-start: 1;
+					}
+					.line-2 {
+						grid-column-start: 3;
+					}
+					.quantity {
+						grid-column-start: 4;
+					}
+					.buttons {
+						grid-column-start: 5;
+					}
+					.remove-btn {
+						grid-column-start: 6;
+					}
+				}
+			}
+		}
+
+		.total-price {
+			background-color: $secondary;
+			border-radius: 5px;
+		}
+		.btn {
+			margin-left: auto;
+			max-width: 200px;
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.cart {
+		.container {
+			max-width: 720px;
+		}
+		.info {
+			.title {
+				margin-left: 1rem;
+			}
+		}
+	}
+}

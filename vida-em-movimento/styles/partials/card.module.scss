@@ -1,0 +1,40 @@
+.card {
+	border: none;
+	margin-bottom: 1.5rem;
+	box-shadow: 0.2rem 0.2rem 5px rgba($dark-grey, 0.3);
+	border-radius: 0.5rem;
+	.card-body {
+		.btn {
+			margin-left: auto !important;
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+		.card {
+			.card-body {
+				display: flex;
+				flex-direction: column;
+				.btn {
+					// position: absolute;
+					margin-top: auto;
+					align-self: flex-end;
+				}
+				.btn-secondary {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.cards {
+		column-gap: 3rem;
+	}
+}
