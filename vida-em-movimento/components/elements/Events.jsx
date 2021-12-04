@@ -7,7 +7,7 @@ const Events = () => {
 		<div className="events">
 			<SubHeading title="Upcoming events" />
 			<FetchEvents />
-			<Button>Find more about</Button>
+			<Button>Check our events</Button>
 		</div>
 	);
 };

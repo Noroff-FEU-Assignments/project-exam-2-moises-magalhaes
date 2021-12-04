@@ -26,9 +26,6 @@
 					stroke: $white;
 				}
 			}
-			// :hover {
-			// 	stroke: rgba($white, 0.5);
-			// }
 		}
 	}
 	.navbar-toggler {
@@ -62,6 +59,8 @@
 				text-align: center;
 			}
 			.nav-link {
+				font-size: 36px;
+				font-weight: 700;
 				color: $white;
 				&.active {
 					color: $yellow;
@@ -102,6 +101,10 @@
 				.me-auto {
 					margin-top: 0 !important;
 					margin-right: 0 !important;
+					.nav-link {
+						font-size: 24px;
+						font-weight: 500;
+					}
 				}
 			}
 		}
