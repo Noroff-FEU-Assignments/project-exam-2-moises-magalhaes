@@ -1,3 +1,18 @@
+Backend information here:
+Strapi website - https://obscure-earth-11966.herokuapp.com/admin/me 
+Login: moisesmdesign10@gmail.com	
+Password: #Project-Exame-2
+
+Authenticated user:
+Username: admin
+Email: admin@vidaemmovimentopnz.com.br
+Password: testtest
+
+
+		Website: https://vida-em-movimento.vercel.app/ 
+		Admin: https://vida-em-movimento.vercel.app/admin
+
+
 # Project Exam 2
 There are two options with this Project Exam. 
 You need to only choose one and please follow the deliveries carefully.
